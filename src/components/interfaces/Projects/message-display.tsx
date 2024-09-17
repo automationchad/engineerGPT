@@ -57,9 +57,16 @@ interface DB {
   avatar: string;
 }
 
+// Add default DB
+const defaultDB: DB = {
+  label: "sai360 - prod",
+  value: "11279",
+  avatar: "1",
+};
+
 export default function MessageDisplay({ item, onAnswerChange, aiAnswer }: QuestionDisplayProps) {
   const [isGenerating, setIsGenerating] = useState(false);
-  const [selectedDB, setSelectedDB] = useState<DB | null>(null);
+  const [selectedDB, setSelectedDB] = useState<DB>(defaultDB);
   const [isEditing, setIsEditing] = useState(false);
   const [context, setContext] = useState("");
   const [editedAnswer, setEditedAnswer] = useState("");
