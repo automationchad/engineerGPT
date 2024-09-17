@@ -1,12 +1,13 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { EmailOtpType } from "@supabase/supabase-js";
 
 import { createClient } from "@/utils/supabase/server";
 
 // Creating a handler to a GET request to route /auth/confirm
-export async function GET(request) {
+export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const token_hash = searchParams.get("token_hash");
-  const type = searchParams.get("type");
+  const type = searchParams.get("type") as EmailOtpType;
   const next = "/projects";
 
   // Create redirect link without the secret token

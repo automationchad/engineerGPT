@@ -10,9 +10,10 @@ export async function GET(req: NextRequest, { params }: { params: { project_id: 
     const {
       data: { user },
     } = await supabase.auth.getUser();
-    const {
-      data: { loopio_id },
-    } = await supabase.from("users").select("loopio_id").eq("id", user?.id).single();
+
+    if (!user) {
+      return NextResponse.json({ error: "User not found" }, { status: 401 });
+    }
 
     const { project_id } = params;
     const { searchParams } = new URL(req.url);
@@ -29,8 +30,6 @@ export async function GET(req: NextRequest, { params }: { params: { project_id: 
       // subSectionId,
     });
 
-    console.log("Query Params:", queryParams);
-
     const response = await fetch(`${LOOPIO_API_BASE_URL}/projectEntries?${queryParams}`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -38,13 +37,9 @@ export async function GET(req: NextRequest, { params }: { params: { project_id: 
       },
     });
 
-    if (!response.ok) {
-      throw new Error(`Loopio API error: ${response.statusText}`);
-    }
-
     const data = await response.json();
 
-    const filteredItems = data.items
+    const filteredItems = data.items;
     // .filter((item: any) => item.assignee.id === loopio_id);
 
     const filteredData = {

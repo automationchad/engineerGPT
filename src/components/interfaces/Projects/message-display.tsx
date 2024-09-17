@@ -20,15 +20,13 @@ import {
   Play,
 } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { ScrollArea } from "@/components/ui/scroll-area";
+
 import { Badge } from "@/components/ui/badge";
 import { useState, useEffect, useRef } from "react";
-import { DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
+
 import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Label } from "@/components/ui/label";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Question } from "@/types";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
@@ -40,27 +38,24 @@ import { sanitizeHtml } from "@/lib/utils";
 import { defaultSettings } from "../Messages/message-settings"; // Import defaultSettings
 
 interface QuestionDisplayProps {
-  question: item | null;
+  item: Question | null;
   onAnswerChange: (id: string, answer: string) => void;
   aiAnswer?: string;
   isGenerating: boolean; // Add this prop
   onGenerateAnswer: (id: string) => void; // Add this prop
+  editedAnswers: EditedAnswer[];
 }
 
-interface item {
-  question: string;
-  id: string;
-  answer: {
-    text: string | null;
-  };
+interface EditedAnswer {
+  id: number;
+  answer: string;
 }
 
 interface DB {
   label: string;
   value: string;
-  avatar: string; 
+  avatar: string;
 }
-
 
 export default function MessageDisplay({ item, onAnswerChange, aiAnswer }: QuestionDisplayProps) {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -99,7 +94,7 @@ export default function MessageDisplay({ item, onAnswerChange, aiAnswer }: Quest
 
   const handleAcceptAnswer = () => {
     if (item) {
-      onAnswerChange(item.id, editedAnswer);
+      onAnswerChange(item.id.toString(), editedAnswer);
       setIsEditing(false);
     }
   };
@@ -153,7 +148,13 @@ export default function MessageDisplay({ item, onAnswerChange, aiAnswer }: Quest
     try {
       const response = await fetch("/api/search", {
         method: "POST",
-        body: JSON.stringify({ query: item.question, context: context, fileContent: fileContent, options: settings, db: selectedDB }),
+        body: JSON.stringify({
+          query: item.question,
+          context: context,
+          fileContent: fileContent,
+          options: settings,
+          db: selectedDB,
+        }),
       });
 
       if (!response.body) throw new Error("No response body");
@@ -340,7 +341,11 @@ export default function MessageDisplay({ item, onAnswerChange, aiAnswer }: Quest
                     />
                     <div className="flex items-center p-3 pt-0">
                       <div className="flex items-center gap-1.5">
-                        <DBSwitcher disabled={isGenerating} onDBChange={handleDBChange} />
+                        <DBSwitcher
+                          disabled={isGenerating}
+                          onDBChange={handleDBChange}
+                          selectedDatabase={selectedDB as DB}
+                        />
                         <MessageSettings
                           onSettingsChange={handleSettingsChange}
                           onRegenerate={handleRegenerate}

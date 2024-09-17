@@ -11,17 +11,15 @@ export async function GET(req: NextRequest, { params }: { params: { project_id: 
     const {
       data: { user },
     } = await supabase.auth.getUser();
-    const {
-       data: { loopio_id },
-     } = await supabase.from("users").select("loopio_id").eq("id", user?.id).single();
 
+    if (!user) {
+      return NextResponse.json({ error: "User not found" }, { status: 401 });
+    }
 
     const { project_id } = params;
     const { searchParams } = new URL(req.url);
     const page = searchParams.get("page") || "1";
     const pageSize = searchParams.get("pageSize") || "10";
-
-    console.log("loopio_id", loopio_id);
 
     const accessToken = await getAccessToken();
 

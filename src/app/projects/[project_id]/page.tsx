@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { useSpring, animated } from "react-spring";
+import { Question } from "@/types";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -56,40 +57,19 @@ interface SubSection {
   questions: Question[];
 }
 
-interface Question {
-  id: number;
-  question: string;
-  answer: {
-    text: string | null;
-    complianceAnswers?: {
-      id: number;
-      label: string;
-      option: string;
-    }[];
-  };
-  selected: boolean;
-  originalAnswer: string | null;
-  isEdited: boolean;
-  section: {
-    id: number;
-  };
-  subSection: {
-    id: number;
-  };
-}
-
 interface Project {
   id: number;
   companyName: string;
   projectType: string;
   dueDate: string;
+  name: string;
 }
 
 interface EditedAnswer {
   id: number;
   question: string;
   answer: string;
-  originalAnswer: string;
+  originalAnswer: string | null;
 }
 
 interface GroupAnswerSettings {
@@ -108,7 +88,6 @@ export default function ProjectPage({ params }: { params: { project_id: string }
   const [searchQuery, setSearchQuery] = useState("");
   const [processedQuestions, setProcessedQuestions] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
-
 
   const [mail, setMail] = useMail();
 
@@ -200,7 +179,7 @@ export default function ProjectPage({ params }: { params: { project_id: string }
     fetchQuestions();
   }, [params.project_id, currentPage, pageSize, editedAnswers]);
 
-  const filteredQuestions = useMemo(() => {
+  const filteredQuestions: Question[] = useMemo(() => {
     if (!searchQuery.trim()) return questions;
 
     const lowercaseQuery = searchQuery.toLowerCase();
@@ -232,19 +211,24 @@ export default function ProjectPage({ params }: { params: { project_id: string }
     setMail((prevMail) => ({ ...prevMail, selected: id.toString() }));
   };
 
-  const handleAnswerChange = (id: number, newAnswer: string) => {
+  const handleAnswerChange = (id: string, newAnswer: string) => {
     const sanitizedAnswer = sanitizeHtml(newAnswer);
-    const question = questions.find((q) => q.id === id);
+    const question = questions.find((q) => q.id === Number(id));
     if (!question) return;
 
     setEditedAnswers((prev) => {
-      const existingIndex = prev.findIndex((ea) => ea.id === id);
+      const existingIndex = prev.findIndex((ea) => ea.id === Number(id));
       if (existingIndex >= 0) {
-        return prev.map((ea) => (ea.id === id ? { ...ea, answer: sanitizedAnswer } : ea));
+        return prev.map((ea) => (ea.id === Number(id) ? { ...ea, answer: sanitizedAnswer } : ea));
       } else {
         return [
           ...prev,
-          { id, question: question.question, answer: sanitizedAnswer, originalAnswer: question.originalAnswer },
+          {
+            id: Number(id),
+            question: question.question,
+            answer: sanitizedAnswer,
+            originalAnswer: question.originalAnswer,
+          },
         ];
       }
     });
@@ -252,7 +236,7 @@ export default function ProjectPage({ params }: { params: { project_id: string }
     // Update only the questions state, preserving the original answer
     setQuestions((prevQuestions) =>
       prevQuestions.map((q) => {
-        if (q.id === id) {
+        if (q.id === Number(id)) {
           return {
             ...q,
             answer: { ...q.answer, text: sanitizedAnswer },
@@ -452,7 +436,7 @@ export default function ProjectPage({ params }: { params: { project_id: string }
           setProgress((processedQuestions / totalQuestions) * 100);
         }
       } catch (error) {
-        if (error.name !== "AbortError") {
+        if (error instanceof Error && error.name !== "AbortError") {
           console.error("Error generating answer:", error);
         }
       }
@@ -472,7 +456,7 @@ export default function ProjectPage({ params }: { params: { project_id: string }
     };
 
     const batchSize = Math.min(5, questionsToAnswer.length); // Make this dynamic based on the number of questions to answer
-    
+
     try {
       for (let i = 0; i < questionsToAnswer.length; i += batchSize) {
         if (newController.signal.aborted) break;
@@ -726,6 +710,8 @@ export default function ProjectPage({ params }: { params: { project_id: string }
               onAnswerChange={handleAnswerChange}
               aiAnswer={aiAnswers[Number(mail.selected)]}
               editedAnswers={editedAnswers}
+              isGenerating={isAnsweringAll}
+              onGenerateAnswer={() => {}}
             />
           </div>
           <div className="col-span-1 h-full flex flex-col gap-4 border-r border-muted overflow-hidden">

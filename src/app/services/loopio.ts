@@ -23,8 +23,8 @@ export async function getAccessToken(): Promise<string> {
   const params = new URLSearchParams({
     grant_type: "client_credentials",
     scope: SCOPE,
-    client_id: CLIENT_ID,
-    client_secret: CLIENT_SECRET,
+    client_id: CLIENT_ID!,
+    client_secret: CLIENT_SECRET!,
   });
 
   try {

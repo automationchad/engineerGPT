@@ -29,6 +29,18 @@ interface Question {
   assignee: {
     name: string;
   };
+  isEdited: boolean;
+}
+
+interface EditedAnswer {
+  id: number;
+  answer: string;
+}
+
+interface MailConfig {
+  selected: string;
+  aiAnswer?: string;
+  // Add other properties as needed
 }
 
 interface QuestionListProps {
@@ -71,19 +83,35 @@ export default function QuestionList({
 
   const handleItemClick = (item: Question) => {
     if (!isGenerating) {
-      setMail({ ...mail, selected: item.id, aiAnswer: item.aiAnswer });
+      setMail({ ...mail, selected: item.id.toString(), aiAnswer: item.aiAnswer || "" });
     }
   };
 
-  const handleCheckboxChange = (item: Question, index: number, checked: boolean) => {
+  const handleCheckboxChange = (item: Question, index: number, checked: boolean, event: MouseEvent) => {
     if (!isGenerating) {
-      if (lastSelectedIndex !== null && window.event && (window.event as MouseEvent).shiftKey) {
+      if (event.shiftKey && lastSelectedIndex !== null) {
         const start = Math.min(lastSelectedIndex, index);
         const end = Math.max(lastSelectedIndex, index);
         const newSelectedQuestions = items.slice(start, end + 1).map((q) => q.id);
-        onSelectQuestions(newSelectedQuestions);
+
+        // Toggle the selection status of the new range
+        const updatedSelection = selectedQuestions.slice();
+        newSelectedQuestions.forEach((id) => {
+          const index = updatedSelection.indexOf(id);
+          if (index === -1) {
+            updatedSelection.push(id);
+          } else {
+            updatedSelection.splice(index, 1);
+          }
+        });
+
+        onSelectQuestions(updatedSelection);
       } else {
-        onSelectQuestion(item.id);
+        // Toggle single selection
+        const updatedSelection = selectedQuestions.includes(item.id)
+          ? selectedQuestions.filter((id) => id !== item.id)
+          : [...selectedQuestions, item.id];
+        onSelectQuestions(updatedSelection);
         setLastSelectedIndex(index);
       }
     }
@@ -99,7 +127,7 @@ export default function QuestionList({
               <button
                 className={cn(
                   "flex flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all w-full",
-                  (selectedQuestions.includes(item.id)) && "bg-muted", 
+                  selectedQuestions.includes(item.id) && "bg-muted",
                   item.id === selectedId && "bg-accent-foreground text-accent",
                   isGenerating && "pointer-events-none opacity-50"
                 )}
@@ -122,7 +150,7 @@ export default function QuestionList({
                     <div
                       className={cn(
                         "ml-auto text-xs",
-                        mail.selected === item.id ? "text-foreground" : "text-muted-foreground"
+                        mail.selected === item.id.toString() ? "text-foreground" : "text-muted-foreground"
                       )}>
                       {/* {formatDistanceToNow(new Date(item.date), {
                       addSuffix: true,
@@ -132,7 +160,7 @@ export default function QuestionList({
                   <div className="text-xs font-medium">{item.question}</div>
                 </div>
                 <div className="line-clamp-2 text-xs text-muted-foreground">
-                  {sanitizeHtml(editedAnswers[item.id] || item.answer.text || "").substring(0, 300)}
+                  {sanitizeHtml(getDisplayAnswer(item)).substring(0, 300)}
                 </div>
 
                 <div className="flex w-full items-center justify-end gap-2">
@@ -175,7 +203,7 @@ export default function QuestionList({
               <div className="absolute top-2 right-2">
                 <Checkbox
                   checked={selectedQuestions.includes(item.id)}
-                  onCheckedChange={(event) => handleCheckboxChange(item, index, event)}
+                  onCheckedChange={(checked) => handleCheckboxChange(item, index, checked as boolean, {} as MouseEvent)}
                   onClick={(e) => e.stopPropagation()}
                   disabled={isGenerating}
                 />

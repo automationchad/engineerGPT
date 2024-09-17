@@ -83,18 +83,17 @@ interface DBSwitcherProps {
   className?: string;
   disabled?: boolean;
   onDBChange?: (db: DB) => void; // Ensure this matches the parent component's type
-  selectedDB: DB;
+  selectedDatabase: DB;
 }
 
-export default function DBSwitcher({ className, disabled, onDBChange }: DBSwitcherProps) {
+export default function DBSwitcher({ className, disabled, onDBChange, selectedDatabase }: DBSwitcherProps) {
   const [open, setOpen] = useState(false);
   const [showNewTeamDialog, setShowNewTeamDialog] = useState(false);
   const [selectedDB, setSelectedDB] = useState<DB>(groups[0].teams[0]);
 
   useEffect(() => {
-    // Call onDBChange with the default DB when the component mounts
     if (!selectedDB && groups.length > 0 && groups[0].teams.length > 0) {
-      onDBChange(groups[0].teams[0]);
+      onDBChange?.(groups[0].teams[0]);
     }
   }, [onDBChange, selectedDB]);
 

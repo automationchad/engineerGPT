@@ -7,9 +7,7 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 
 import Link from "next/link";
-import Image from "next/image";
-import {} from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { User } from "@/types";
 
 import {
   DropdownMenu,
@@ -22,63 +20,30 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import {
-  Bird,
-  Book,
-  Bot,
-  Code2,
-  CornerDownLeft,
   LifeBuoy,
-  Mic,
-  Paperclip,
-  Rabbit,
   Settings2,
   ScrollText,
-  Share,
   SquareTerminal,
   SquareUser,
   Triangle,
-  Turtle,
-  Home,
-  Share2,
   Sun,
   Moon,
   HelpCircle,
   Settings,
   LogOut,
-  ChevronRight,
-  BookOpenText,
 } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerDescription,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
+
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 import { createClient } from "@/utils/supabase/client";
-import { cookies } from "next/headers";
 import { useRouter } from "next/navigation";
 
 interface Project {
   id: string;
   name: string;
   updated_at: string;
-}
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
 }
 
 export default function Sidebar() {
@@ -94,7 +59,7 @@ export default function Sidebar() {
     router.push("/login");
   };
 
-  const { theme,setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   const navItems = [
     {
@@ -107,11 +72,6 @@ export default function Sidebar() {
       icon: <SquareTerminal className="size-5" />,
       href: "/playground",
     },
-    // {
-    //   name: "Documentation",
-    //   icon: <Book className="size-5" />,
-    //   href: "/documentation",
-    // },
     {
       name: "Settings",
       icon: <Settings2 className="size-5" />,
@@ -125,7 +85,7 @@ export default function Sidebar() {
       const {
         data: { user },
       } = await supabase.auth.getUser();
-      setUser(user);
+      setUser(user as User);
 
       // Fetch recent projects
       const { data, error } = await supabase.from("projects").select("id, name, updated_at");
