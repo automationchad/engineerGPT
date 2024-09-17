@@ -17,13 +17,13 @@ let tokenExpiration: number | null = null;
 
 export async function getAccessToken(): Promise<string> {
   if (cachedToken && tokenExpiration && Date.now() < tokenExpiration) {
-    return "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiI4MmQwYmQ2NDdhMjc3NzcyYjY2Mzg2ZDkyZTdmMWQyOWE3OGI4NGI4YWU5OTNhODE1MzA5YjViNzEyM2Q0ZTI1YWRlNzliYzFmZTE2YWJhNyIsImlhdCI6MTcyNjUzNTY5Mi4zNzcyOTksIm5iZiI6MTcyNjUzNTY5Mi4zNzcyOTksImV4cCI6MTcyNjUzOTI5Mi4zNzY3MTcsInN1YiI6IlAxOTBjWlJscFFaNnVoZWFtWHBBVWJrdVp2YmtxRUlPamJaWUdwcFFYT3M9Iiwic2NvcGVzIjoibGlicmFyeTpyZWFkIGxpYnJhcnk6d3JpdGUgcHJvamVjdDpyZWFkIHByb2plY3Q6d3JpdGUgcHJvamVjdC5wYXJ0aWNpcGFudDpyZWFkIiwiY2xpZW50SWQiOiJQMTkwY1pSbHBRWjZ1aGVhbVhwQVVia3VadmJrcUVJT2piWllHcHBRWE9zPSIsImF1ZCI6ImFwaS5sb29waW8uY29tIiwiaXNzIjoiYXBpLmxvb3Bpby5jb20iLCJ1c2VyX3BrIjoyMzU5MzYsImN1c3RvbWVyX3BrIjo1NzcxfQ.L9L_BTuWTAWVe5G-X4OCL9Oiz43HS1AKM0t211txKPIl9sVgn1h1VW4nPmukZxpgAlkBKDM48KLs7meeSMBdN7I3wPoEPLXyQi8-Iy8WpwrPm4XiO62-mm3VHslL4T2NNa7yWuf4qWZZqXxI-4xrfhrI_5Y-tKYKWfK-FYPrN2WQbuwIyoHBhvyWYJN0eEhYSJDKUf7e9H7JpP5y9sGNZEjwBMle-oZx92HRtoPfQosi8zqQ_xuTBtFOEhVDPIk6J8sh8exnEnn-r3oWnL76YKVN_MBug_NO-qYA7vjvdz_3D0dQJaMxb5DMFNFfO7ZhVRa9KFc-habuhlaQ0ImGmA";
+    return cachedToken;
   }
 
   if (!CLIENT_ID || !CLIENT_SECRET) {
     throw new Error("Loopio client credentials are not set");
   }
-  
+
   const params = new URLSearchParams({
     grant_type: "client_credentials",
     scope: SCOPE,
