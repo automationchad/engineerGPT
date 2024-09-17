@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from "react";
+import React, { useState, MouseEvent, useCallback } from "react";
 import { ComponentProps } from "react";
 import { Badge } from "@/components/ui/badge";
 import { formatDistanceToNow } from "date-fns";
@@ -87,35 +87,27 @@ export default function QuestionList({
     }
   };
 
-  const handleCheckboxChange = (item: Question, index: number, checked: boolean, event: MouseEvent) => {
-    if (!isGenerating) {
-      if (event.shiftKey && lastSelectedIndex !== null) {
-        const start = Math.min(lastSelectedIndex, index);
-        const end = Math.max(lastSelectedIndex, index);
-        const newSelectedQuestions = items.slice(start, end + 1).map((q) => q.id);
+    const [checkedItems, setCheckedItems] = useState(new Array(items.length).fill(false));
+    const [lastCheckedIndex, setLastCheckedIndex] = useState(null);
 
-        // Toggle the selection status of the new range
-        const updatedSelection = selectedQuestions.slice();
-        newSelectedQuestions.forEach((id) => {
-          const index = updatedSelection.indexOf(id);
-          if (index === -1) {
-            updatedSelection.push(id);
-          } else {
-            updatedSelection.splice(index, 1);
+    const handleCheckboxChange = useCallback(
+      (index, event) => {
+        const newCheckedItems = [...checkedItems];
+        newCheckedItems[index] = event.target.checked;
+
+        if (event.shiftKey && lastCheckedIndex !== null) {
+          const start = Math.min(lastCheckedIndex, index);
+          const end = Math.max(lastCheckedIndex, index);
+          for (let i = start; i <= end; i++) {
+            newCheckedItems[i] = event.target.checked;
           }
-        });
+        }
 
-        onSelectQuestions(updatedSelection);
-      } else {
-        // Toggle single selection
-        const updatedSelection = selectedQuestions.includes(item.id)
-          ? selectedQuestions.filter((id) => id !== item.id)
-          : [...selectedQuestions, item.id];
-        onSelectQuestions(updatedSelection);
-        setLastSelectedIndex(index);
-      }
-    }
-  };
+        setCheckedItems(newCheckedItems);
+        setLastCheckedIndex(index);
+      },
+      [checkedItems, lastCheckedIndex]
+    );
 
   return (
     <ScrollArea className=" ">
@@ -203,7 +195,9 @@ export default function QuestionList({
               <div className="absolute top-2 right-2">
                 <Checkbox
                   checked={selectedQuestions.includes(item.id)}
-                  onCheckedChange={(checked) => handleCheckboxChange(item, index, checked as boolean, {} as MouseEvent)}
+                  onCheckedChange={(checked) =>
+                    handleCheckboxChange(item, index, {} as React.MouseEvent<HTMLButtonElement>)
+                  }
                   onClick={(e) => e.stopPropagation()}
                   disabled={isGenerating}
                 />
