@@ -7,7 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
+import GroupAnswerSettings from "@/components/interfaces/Messages/group-answer-settings";
 
 import { Separator } from "@/components/ui/separator";
 import SectionsNav from "@/components/interfaces/Projects/Sections";
@@ -90,12 +92,23 @@ interface EditedAnswer {
   originalAnswer: string;
 }
 
+interface GroupAnswerSettings {
+  model: string;
+  temperature: number;
+  relevance: number;
+  styleExaggeration: number;
+  context: string;
+}
+
 export default function ProjectPage({ params }: { params: { project_id: string } }) {
   const [sections, setSections] = useState<Section[]>([]);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [showEmptyOnly, setShowEmptyOnly] = useState(false);
   const [currentProject, setCurrentProject] = useState<Project | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [processedQuestions, setProcessedQuestions] = useState(0);
+  const [totalQuestions, setTotalQuestions] = useState(0);
+
 
   const [mail, setMail] = useMail();
 
@@ -117,6 +130,13 @@ export default function ProjectPage({ params }: { params: { project_id: string }
   const [isPaused, setIsPaused] = useState(false);
   const [controller, setController] = useState<AbortController | null>(null);
   const [globalContext, setGlobalContext] = useState("");
+  const [groupAnswerSettings, setGroupAnswerSettings] = useState<GroupAnswerSettings>({
+    model: "gpt-4o-mini",
+    temperature: 80,
+    relevance: 80,
+    styleExaggeration: 20,
+    context: "",
+  });
 
   const [stagedChanges, setStagedChanges] = useState<StagedChange[]>([]);
   const [isStagedChangesOpen, setIsStagedChangesOpen] = useState(true);
@@ -147,6 +167,8 @@ export default function ProjectPage({ params }: { params: { project_id: string }
           `/api/projects/${params.project_id}/entries?page=${currentPage}&pageSize=${pageSize}`
         );
         const data = await response.json();
+
+        const sections = await fetch(`/api/projects/${params.project_id}/sections`);
 
         const formattedQuestions = data.items.map((item: any) => {
           const editedAnswer = editedAnswers.find((ea) => ea.id === item.id);
@@ -195,6 +217,10 @@ export default function ProjectPage({ params }: { params: { project_id: string }
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
+  };
+
+  const shouldIgnoreAnswer = (answer: string) => {
+    return answer.includes("Not enough information to answer properly");
   };
 
   const handleSectionSelect = (sectionId: string) => {
@@ -354,15 +380,34 @@ export default function ProjectPage({ params }: { params: { project_id: string }
     return tempDiv.textContent || tempDiv.innerText || "";
   };
 
-  const handleGenerateAnswer = async (id: number, context: string, signal?: AbortSignal) => {
-    setLoadingQuestions((prev) => ({ ...prev, [id]: true }));
-    const question = questions.find((q) => q.id === id);
-    if (question) {
+  const handleAnswerAllQuestions = async () => {
+    setIsAnsweringAll(true);
+    setProgress(0);
+    setIsPaused(false);
+    const questionsToAnswer = questions.filter((q) => selectedQuestions.includes(q.id));
+    const totalQuestions = questionsToAnswer.length;
+    let processedQuestions = 0;
+    setTotalQuestions(totalQuestions);
+
+    const newController = new AbortController();
+    setController(newController);
+
+    const newAiAnswers = { ...aiAnswers };
+    const newEditedAnswers = [...editedAnswers];
+
+    const processQuestion = async (question: Question) => {
+      if (newController.signal.aborted) return;
+
       try {
         const response = await fetch("/api/search", {
           method: "POST",
-          body: JSON.stringify({ query: question.question, context: context }),
-          signal: signal,
+          body: JSON.stringify({
+            query: question.question,
+            context: groupAnswerSettings.context,
+            options: groupAnswerSettings,
+            db: { value: "11279" },
+          }),
+          signal: newController.signal,
         });
 
         if (!response.body) throw new Error("No response body");
@@ -372,147 +417,81 @@ export default function ProjectPage({ params }: { params: { project_id: string }
         let accumulatedAnswer = "";
 
         while (true) {
+          if (newController.signal.aborted) {
+            reader.cancel();
+            break;
+          }
+
           const { done, value } = await reader.read();
           if (done) break;
 
           const chunk = decoder.decode(value, { stream: true });
           accumulatedAnswer += chunk;
 
-          setQuestions((prevQuestions) =>
-            prevQuestions.map((q) => {
-              if (q.id === id) {
-                const isEdited = accumulatedAnswer !== q.originalAnswer;
-                return {
-                  ...q,
-                  answer: { text: accumulatedAnswer },
-                  isEdited,
-                };
-              }
-              return q;
-            })
-          );
-
           // Update the AI answer in real-time
-          setAiAnswers((prev) => ({ ...prev, [id]: accumulatedAnswer }));
+          newAiAnswers[question.id] = accumulatedAnswer;
+          setAiAnswers({ ...newAiAnswers });
         }
 
-        // Update editedAnswers state only once after streaming is complete
-        setEditedAnswers((prev) => {
-          const existingIndex = prev.findIndex((ea) => ea.id === id);
+        if (!newController.signal.aborted) {
+          // Update editedAnswers only if not aborted
+          const existingIndex = newEditedAnswers.findIndex((ea) => ea.id === question.id);
           if (existingIndex >= 0) {
-            return prev.map((ea) => (ea.id === id ? { ...ea, answer: accumulatedAnswer } : ea));
+            newEditedAnswers[existingIndex] = { ...newEditedAnswers[existingIndex], answer: accumulatedAnswer };
           } else {
-            return [
-              ...prev,
-              { id, question: question.question, answer: accumulatedAnswer, originalAnswer: question.originalAnswer },
-            ];
+            newEditedAnswers.push({
+              id: question.id,
+              question: question.question,
+              answer: accumulatedAnswer,
+              originalAnswer: question.originalAnswer || "",
+            });
           }
-        });
+
+          processedQuestions++;
+          setProcessedQuestions(processedQuestions);
+          setProgress((processedQuestions / totalQuestions) * 100);
+        }
       } catch (error) {
-        if (error.name === "AbortError") {
-          console.log("Fetch aborted");
-        } else {
+        if (error.name !== "AbortError") {
           console.error("Error generating answer:", error);
         }
       }
+    };
+
+    const processBatch = async (batch: Question[]) => {
+      await Promise.all(
+        batch.map(async (question) => {
+          while (isPaused && !newController.signal.aborted) {
+            await new Promise((resolve) => setTimeout(resolve, 100));
+          }
+          if (!newController.signal.aborted) {
+            await processQuestion(question);
+          }
+        })
+      );
+    };
+
+    const batchSize = Math.min(5, questionsToAnswer.length); // Make this dynamic based on the number of questions to answer
+    
+    try {
+      for (let i = 0; i < questionsToAnswer.length; i += batchSize) {
+        if (newController.signal.aborted) break;
+        const batch = questionsToAnswer.slice(i, i + batchSize);
+        await processBatch(batch);
+      }
+    } catch (error) {
+      console.error("Error processing questions:", error);
+    } finally {
+      if (!newController.signal.aborted) {
+        setEditedAnswers(newEditedAnswers);
+        setAiAnswers(newAiAnswers);
+      }
+      setIsAnsweringAll(false);
+      setProgress(0);
+      setController(null);
+      setSelectedQuestions([]); // Clear selection after processing
     }
-    setLoadingQuestions((prev) => ({ ...prev, [id]: false }));
   };
-
- const handleAnswerAllQuestions = async () => {
-   setIsAnsweringAll(true);
-   setProgress(0);
-   setIsPaused(false);
-   const questionsToAnswer = questions.filter((q) => selectedQuestions.includes(q.id));
-   const totalQuestions = questionsToAnswer.length;
-   let processedQuestions = 0;
-
-   const newController = new AbortController();
-   setController(newController);
-
-   const newAiAnswers = { ...aiAnswers };
-   const newEditedAnswers = [...editedAnswers];
-
-   const processQuestion = async (question: Question) => {
-     if (newController.signal.aborted) return;
-
-     try {
-       const response = await fetch("/api/search", {
-         method: "POST",
-         body: JSON.stringify({ query: question.question, context: globalContext }),
-         signal: newController.signal,
-       });
-
-       if (!response.body) throw new Error("No response body");
-
-       const reader = response.body.getReader();
-       const decoder = new TextDecoder();
-       let accumulatedAnswer = "";
-
-       while (true) {
-         const { done, value } = await reader.read();
-         if (done) break;
-
-         const chunk = decoder.decode(value, { stream: true });
-         accumulatedAnswer += chunk;
-
-         // Update the AI answer in real-time
-         newAiAnswers[question.id] = accumulatedAnswer;
-         setAiAnswers({ ...newAiAnswers });
-       }
-
-       // Update editedAnswers
-       const existingIndex = newEditedAnswers.findIndex((ea) => ea.id === question.id);
-       if (existingIndex >= 0) {
-         newEditedAnswers[existingIndex] = { ...newEditedAnswers[existingIndex], answer: accumulatedAnswer };
-       } else {
-         newEditedAnswers.push({
-           id: question.id,
-           question: question.question,
-           answer: accumulatedAnswer,
-           originalAnswer: question.originalAnswer || "",
-         });
-       }
-
-       processedQuestions++;
-       setProgress((processedQuestions / totalQuestions) * 100);
-     } catch (error) {
-       if (error.name !== "AbortError") {
-         console.error("Error generating answer:", error);
-       }
-     }
-   };
-
-   const processBatch = async (batch: Question[]) => {
-     await Promise.all(
-       batch.map(async (question) => {
-         while (isPaused) {
-           await new Promise((resolve) => setTimeout(resolve, 100));
-           if (newController.signal.aborted) return;
-         }
-         await processQuestion(question);
-       })
-     );
-   };
-
-   const batchSize = 5; // Adjust this value based on your API's rate limits
-   try {
-     for (let i = 0; i < questionsToAnswer.length; i += batchSize) {
-       if (newController.signal.aborted) break;
-       const batch = questionsToAnswer.slice(i, i + batchSize);
-       await processBatch(batch);
-     }
-   } catch (error) {
-     console.error("Error processing questions:", error);
-   } finally {
-     setEditedAnswers(newEditedAnswers);
-     setAiAnswers(newAiAnswers);
-     setIsAnsweringAll(false);
-     setProgress(0);
-     setController(null);
-     setSelectedQuestions([]); // Clear selection after processing
-   }
- };
 
   const handlePauseResume = () => {
     setIsPaused(!isPaused);
@@ -523,26 +502,29 @@ export default function ProjectPage({ params }: { params: { project_id: string }
     setIsAnsweringAll(false);
     setProgress(0);
     setController(null);
+    setProcessedQuestions(0);
+    setTotalQuestions(0);
   };
 
   const getStagedQuestions = () => stagedChanges;
 
   const getAllChanges = () => {
     return editedAnswers.filter(
-      (ea) => ea.answer !== ea.originalAnswer && !stagedChanges.some((sc) => sc.id === ea.id)
+      (ea) =>
+        ea.answer !== ea.originalAnswer &&
+        !stagedChanges.some((sc) => sc.id === ea.id) &&
+        !shouldIgnoreAnswer(ea.answer)
     );
   };
 
   const handleStageChanges = (id: number) => {
     const question = questions.find((q) => q.id === id);
-    if (question) {
+    if (question && !shouldIgnoreAnswer(question.answer.text || "")) {
       setStagedChanges((prev) => {
         const existingIndex = prev.findIndex((sc) => sc.id === id);
         if (existingIndex >= 0) {
-          // Remove if already staged
           return prev.filter((sc) => sc.id !== id);
         } else {
-          // Add to staged changes
           return [
             ...prev,
             {
@@ -556,8 +538,28 @@ export default function ProjectPage({ params }: { params: { project_id: string }
     }
   };
 
+  const handleSelectQuestions = (questionIds: number[]) => {
+    setSelectedQuestions((prev) => {
+      const newSelection = new Set(prev);
+      questionIds.forEach((id) => {
+        if (newSelection.has(id)) {
+          newSelection.delete(id);
+        } else {
+          newSelection.add(id);
+        }
+      });
+      return Array.from(newSelection);
+    });
+  };
+
+  const handleGroupAnswerSettings = (settings: GroupAnswerSettings) => {
+    setGroupAnswerSettings(settings);
+  };
+
   const handleStageAllChanges = () => {
-    const changedQuestions = questions.filter((q) => q.isEdited && !stagedChanges.some((sc) => sc.id === q.id));
+    const changedQuestions = questions.filter(
+      (q) => q.isEdited && !stagedChanges.some((sc) => sc.id === q.id) && !shouldIgnoreAnswer(q.answer.text || "")
+    );
     setStagedChanges((prev) => [
       ...prev,
       ...changedQuestions.map((q) => ({
@@ -601,13 +603,13 @@ export default function ProjectPage({ params }: { params: { project_id: string }
   // }
 
   return (
-    <>
-      <header className="top-0 z-10 flex h-[60px] items-center gap-1 border-b bg-background px-4">
+    <div className="h-screen overflow-hidden flex flex-col">
+      <header className="top-0 z-10 flex h-[60px] flex-shrink-0 items-center gap-1 border-b bg-background px-4">
         <h1 className="text-xl font-medium">{currentProject ? currentProject.name : "Project"}</h1>
       </header>
-      <main className="h-full max-h-screen flex-grow overflow-hidden">
+      <main className="flex-grow overflow-hidden">
         <div className="col-span-6 grid grid-cols-6 h-full bg-background">
-          <div className="col-span-2 border-r h-full border-muted overflow-hidden flex flex-col">
+          <div className="col-span-2 border-r h-full border-border overflow-y-auto flex flex-col">
             <Tabs defaultValue="all" className="flex flex-col h-full">
               <div className="flex-shrink-0">
                 <div className="flex items-center px-4 py-2">
@@ -646,13 +648,11 @@ export default function ProjectPage({ params }: { params: { project_id: string }
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger asChild>
-                          <Button
+                          <GroupAnswerSettings
                             disabled={isLoading || isAnsweringAll || selectedQuestions.length === 0}
-                            variant="ghost"
-                            size="icon"
-                            onClick={handleAnswerAllQuestions}>
-                            <Sparkles className="h-4 w-4" />
-                          </Button>
+                            onSettingsChange={handleGroupAnswerSettings}
+                            onExecute={handleAnswerAllQuestions}
+                          />
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>Generate answers</p>
@@ -676,30 +676,21 @@ export default function ProjectPage({ params }: { params: { project_id: string }
                       {isAnsweringAll && (
                         <div className="fixed z-50 bottom-4 right-4 bg-background border border-muted rounded-lg p-4 shadow-lg">
                           <div className="mb-2 flex items-center space-x-4">
-                            <Progress value={progress} className="w-40" />
-                            <Button onClick={handlePauseResume} size="sm">
-                              {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
+                            <Progress value={progress} className="w-40 h-[3px]" />
+                            <Button onClick={handlePauseResume} size="xs">
+                              {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-3 w-3" />}
                             </Button>
-                            <Button onClick={handleStop} size="sm">
-                              <Square className="h-4 w-4" />
+                            <Button onClick={handleStop} size="xs">
+                              <Square className="h-3 w-3" />
                             </Button>
                           </div>
-                          <p className="text-sm text-muted-foreground">Generating answers...</p>
+                          <p className="text-sm text-muted-foreground">
+                            Generating answers...({processedQuestions} / {totalQuestions})
+                          </p>
                         </div>
                       )}
                     </div>
                   </form>
-                  {selectedQuestions.length > 0 && (
-                    <div className="mt-2">
-                      <Input
-                        placeholder="Add context for selected questions..."
-                        value={globalContext}
-                        disabled={isLoading || isAnsweringAll}
-                        onChange={(e) => setGlobalContext(e.target.value)}
-                        className="w-full resize-none"
-                      />
-                    </div>
-                  )}
                 </div>
               </div>
               <TabsContent value="all" className="flex-grow overflow-auto">
@@ -708,6 +699,7 @@ export default function ProjectPage({ params }: { params: { project_id: string }
                   selectedId={Number(mail.selected)}
                   selectedQuestions={selectedQuestions}
                   onSelectQuestion={handleSelectQuestion}
+                  onSelectQuestions={handleSelectQuestions}
                   isGenerating={isAnsweringAll}
                   editedAnswers={editedAnswers}
                   aiAnswers={aiAnswers}
@@ -719,6 +711,7 @@ export default function ProjectPage({ params }: { params: { project_id: string }
                   selectedId={Number(mail.selected)}
                   selectedQuestions={selectedQuestions}
                   onSelectQuestion={handleSelectQuestion}
+                  onSelectQuestions={handleSelectQuestions}
                   isGenerating={isAnsweringAll}
                   editedAnswers={editedAnswers}
                   aiAnswers={aiAnswers}
@@ -727,7 +720,7 @@ export default function ProjectPage({ params }: { params: { project_id: string }
             </Tabs>
           </div>
 
-          <div className="col-span-3 flex flex-col h-full gap-4 border-r border-muted">
+          <div className="col-span-3 gap-4 h-full border-r border-muted overflow-hidden">
             <MessageDisplay
               item={questions.find((q) => q.id === Number(mail.selected)) || null}
               onAnswerChange={handleAnswerChange}
@@ -735,7 +728,7 @@ export default function ProjectPage({ params }: { params: { project_id: string }
               editedAnswers={editedAnswers}
             />
           </div>
-          <div className="col-span-1 h-full flex flex-col gap-4 border-r border-muted">
+          <div className="col-span-1 h-full flex flex-col gap-4 border-r border-muted overflow-hidden">
             <SectionsNav projectId={params.project_id} onSectionSelect={handleSectionSelect} />
             <div
               className="flex-col items-start gap-8 flex-grow flex col-span-3 border-t p-4 border-muted"
@@ -927,13 +920,15 @@ export default function ProjectPage({ params }: { params: { project_id: string }
                       {getAllChanges().map((editedAnswer) => (
                         <div key={editedAnswer.id} className="">
                           <div
-                            className={`flex items-center relative justify-between group hover:bg-muted px-4 py-2 cursor-pointer`}
+                            className={`flex items-center relative justify-between group hover:bg-muted px-4 py-2 cursor-pointer ${
+                              shouldIgnoreAnswer(editedAnswer.answer) ? "opacity-50" : ""
+                            }`}
                             onClick={() => handleItemClick(editedAnswer.id)}>
                             <div className="flex items-center rounded-md">
                               {/* <FileText className="h-4 w-4 text-gray-500 mr-2" /> */}
 
                               <div className="text-sm max-w-[250px] truncate overflow-hidden inline-flex items-center leading-none transition-all duration-200 ease-in-out">
-                                {editedAnswer.answer.includes("Not enough information to answer properly") ? (
+                                {shouldIgnoreAnswer(editedAnswer.answer) ? (
                                   <Badge variant="destructive" size="xs" className="text-xs text-white mr-1">
                                     <TriangleAlert className="h-3 w-3" />
                                   </Badge>
@@ -945,43 +940,45 @@ export default function ProjectPage({ params }: { params: { project_id: string }
                                 <span className="text-xs text-ellipsis">{editedAnswer.question}</span>
                               </div>
                             </div>
-                            <div className="opacity-0 absolute right-2 group-hover:opacity-100 transition-opacity duration-200 ease-in-out flex items-center space-x-2 flex-row">
-                              <TooltipProvider>
-                                <Tooltip>
-                                  <TooltipTrigger asChild>
-                                    <Button
-                                      size="xs"
-                                      variant="outline"
-                                      onClick={(e) => {
-                                        e.stopPropagation();
-                                        handleDiscardAllChanges(editedAnswer.id);
-                                      }}
-                                      disabled={isLoading}>
-                                      <Minus className="h-3 w-3" />
-                                    </Button>
-                                  </TooltipTrigger>
-                                  <TooltipContent>
-                                    <p>Discard all changes</p>
-                                  </TooltipContent>
-                                </Tooltip>
-                              </TooltipProvider>
+                            {!shouldIgnoreAnswer(editedAnswer.answer) && (
+                              <div className="opacity-0 absolute right-2 group-hover:opacity-100 transition-opacity duration-200 ease-in-out flex items-center space-x-2 flex-row">
+                                <TooltipProvider>
+                                  <Tooltip>
+                                    <TooltipTrigger asChild>
+                                      <Button
+                                        size="xs"
+                                        variant="outline"
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          handleDiscardAllChanges(editedAnswer.id);
+                                        }}
+                                        disabled={isLoading}>
+                                        <Minus className="h-3 w-3" />
+                                      </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                      <p>Discard all changes</p>
+                                    </TooltipContent>
+                                  </Tooltip>
+                                </TooltipProvider>
 
-                              <TooltipProvider>
-                                <Tooltip>
-                                  <TooltipTrigger asChild>
-                                    <Button
-                                      size="xs"
-                                      variant="outline"
-                                      onClick={() => handleStageChanges(editedAnswer.id)}>
-                                      <Plus className="h-3 w-3" />
-                                    </Button>
-                                  </TooltipTrigger>
-                                  <TooltipContent>
-                                    <p>Stage changes</p>
-                                  </TooltipContent>
-                                </Tooltip>
-                              </TooltipProvider>
-                            </div>
+                                <TooltipProvider>
+                                  <Tooltip>
+                                    <TooltipTrigger asChild>
+                                      <Button
+                                        size="xs"
+                                        variant="outline"
+                                        onClick={() => handleStageChanges(editedAnswer.id)}>
+                                        <Plus className="h-3 w-3" />
+                                      </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                      <p>Stage changes</p>
+                                    </TooltipContent>
+                                  </Tooltip>
+                                </TooltipProvider>
+                              </div>
+                            )}
                           </div>
                         </div>
                       ))}
@@ -993,6 +990,6 @@ export default function ProjectPage({ params }: { params: { project_id: string }
           </div>
         </div>
       </main>
-    </>
+    </div>
   );
 }

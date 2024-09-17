@@ -11,18 +11,18 @@ const CorsHeaders = {
 
 export async function POST(req: NextRequest) {
   try {
-    const { query, context, fileContent } = await req.json();
+    const { query, context, fileContent, options, db } = await req.json();
 
     let searchContent;
     try {
-      searchContent = await groundxSearchContent(query + context);
+      searchContent = await groundxSearchContent(query + context, db);
     } catch (searchError: any) {
       if (searchError.status === 402 && searchError.responseBody?.message) {
         return NextResponse.json({ error: searchError.responseBody.message }, { status: 402 });
       }
       throw searchError; // Re-throw if it's not the specific error we're handling
     }
-    const stream = await chatCompletions(query, searchContent, context, fileContent);
+    const stream = await chatCompletions(query, searchContent, context, fileContent, options);
 
     const readableStream = new ReadableStream({
       async start(controller) {

@@ -1,0 +1,35 @@
+<svg viewBox="0 0 80 80" fill="none" role="img" xmlns="http://www.w3.org/2000/svg" width="1.25rem"
+  height="1.25rem">
+  <mask id=":r7m:" maskUnits="userSpaceOnUse" x="0" y="0" width="80" height="80">
+    <rect width="80" height="80" rx="160" fill="#FFFFFF"></rect>
+  </mask>
+  <g mask="url(#:r7m:)">
+    <rect width="80" height="80" fill="#F0F9FF"></rect>
+    <path d="M0 0C40 0 80 40 80 80V0H0Z" fill="url(#grad1)" filter="url(#prefix__filter0_f)"
+      transform="translate(-10 -10) rotate(15 40 40) scale(1.2)"></path>
+    <path d="M80 80C40 80 0 40 0 0V80H80Z" fill="url(#grad2)" filter="url(#prefix__filter0_f)"
+      transform="translate(10 10) rotate(-15 40 40) scale(1.2)"></path>
+    <circle cx="40" cy="40" r="32" fill="url(#grad3)" filter="url(#prefix__filter0_f)"
+      transform="translate(0 0) scale(1.1)"
+      style="mix-blend-mode: soft-light;"></circle>
+  </g>
+  <defs>
+    <linearGradient id="grad1" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7DD3FC"></stop>
+      <stop offset="100%" stop-color="#1D4ED8"></stop>
+    </linearGradient>
+    <linearGradient id="grad2" x1="80" y1="80" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#818CF8"></stop>
+      <stop offset="100%" stop-color="#C084FC"></stop>
+    </linearGradient>
+    <radialGradient id="grad3" cx="50%" cy="50%" r="50%" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34D399" stop-opacity="0.6"></stop>
+      <stop offset="100%" stop-color="#34D399" stop-opacity="0"></stop>
+    </radialGradient>
+    <filter id="prefix__filter0_f" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+      <feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur"></feGaussianBlur>
+    </filter>
+  </defs>
+</svg>

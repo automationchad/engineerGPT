@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <head />
         <body>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-            <div className="h-screen max-h-screen">{children}</div>
+            <div className="max-h-screen">{children}</div>
           </ThemeProvider>
         </body>
       </html>

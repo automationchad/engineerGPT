@@ -140,7 +140,7 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <aside className="inset-y fixed left-0 z-20 flex h-full flex-col border-r">
+    <aside className="inset-y fixed left-0 z-20 flex h-full flex-col border-r border-border">
       <div className="border-b p-2">
         <Button variant="outline" size="icon" aria-label="Home">
           <Triangle className="size-5 fill-foreground" />

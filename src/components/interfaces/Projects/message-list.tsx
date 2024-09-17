@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, MouseEvent } from "react";
 import { ComponentProps } from "react";
 import { Badge } from "@/components/ui/badge";
 import { formatDistanceToNow } from "date-fns";
@@ -39,6 +39,7 @@ interface QuestionListProps {
   selectedQuestions: number[];
   onSelectQuestion: (id: number) => void;
   isGenerating: boolean;
+  onSelectQuestions: (ids: number[]) => void;
 }
 
 const sanitizeHtml = (html: string) => {
@@ -52,11 +53,13 @@ export default function QuestionList({
   selectedId,
   selectedQuestions,
   onSelectQuestion,
+  onSelectQuestions,
   isGenerating,
   editedAnswers,
   aiAnswers,
 }: QuestionListProps) {
   const [mail, setMail] = useMail();
+  const [lastSelectedIndex, setLastSelectedIndex] = useState<number | null>(null);
 
   const getDisplayAnswer = (item: Question) => {
     const editedAnswer = editedAnswers.find((ea) => ea.id === item.id);
@@ -64,6 +67,26 @@ export default function QuestionList({
       return editedAnswer.answer;
     }
     return aiAnswers[item.id] || item.answer.text || "";
+  };
+
+  const handleItemClick = (item: Question) => {
+    if (!isGenerating) {
+      setMail({ ...mail, selected: item.id, aiAnswer: item.aiAnswer });
+    }
+  };
+
+  const handleCheckboxChange = (item: Question, index: number, checked: boolean) => {
+    if (!isGenerating) {
+      if (lastSelectedIndex !== null && window.event && (window.event as MouseEvent).shiftKey) {
+        const start = Math.min(lastSelectedIndex, index);
+        const end = Math.max(lastSelectedIndex, index);
+        const newSelectedQuestions = items.slice(start, end + 1).map((q) => q.id);
+        onSelectQuestions(newSelectedQuestions);
+      } else {
+        onSelectQuestion(item.id);
+        setLastSelectedIndex(index);
+      }
+    }
   };
 
   return (
@@ -75,11 +98,12 @@ export default function QuestionList({
             <div key={item.id} className="relative">
               <button
                 className={cn(
-                  "flex flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all hover:bg-muted w-full",
-                  item.id === selectedId && "bg-muted",
+                  "flex flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all w-full",
+                  (selectedQuestions.includes(item.id)) && "bg-muted", 
+                  item.id === selectedId && "bg-accent-foreground text-accent",
                   isGenerating && "pointer-events-none opacity-50"
                 )}
-                onClick={() => !isGenerating && setMail({ ...mail, selected: item.id, aiAnswer: item.aiAnswer })}>
+                onClick={(event) => handleItemClick(item)}>
                 <div className="flex w-full flex-col gap-1">
                   <div className="flex items-center">
                     <div className="flex items-center gap-2">
@@ -151,7 +175,8 @@ export default function QuestionList({
               <div className="absolute top-2 right-2">
                 <Checkbox
                   checked={selectedQuestions.includes(item.id)}
-                  onCheckedChange={() => onSelectQuestion(item.id)}
+                  onCheckedChange={(event) => handleCheckboxChange(item, index, event)}
+                  onClick={(e) => e.stopPropagation()}
                   disabled={isGenerating}
                 />
               </div>

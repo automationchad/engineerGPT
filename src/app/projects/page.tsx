@@ -28,7 +28,7 @@ export default function ProjectsPage() {
   }, [projects]);
 
   return (
-    <>
+    <div className="h-full">
       <header className="sticky top-0 z-10 flex h-[60px] items-center gap-1 border-b bg-background px-4">
         <h1 className="text-xl font-medium">Projects</h1>
       </header>
@@ -62,6 +62,6 @@ export default function ProjectsPage() {
           </Table>
         </div>
       </main>
-    </>
+    </div>
   );
 }

@@ -1,0 +1,46 @@
+<svg viewBox="0 0 80 80" fill="none" role="img" xmlns="http://www.w3.org/2000/svg" width="1.25rem"
+  height="1.25rem">
+  <mask id=":r8n:" maskUnits="userSpaceOnUse" x="0" y="0" width="80" height="80">
+    <rect width="80" height="80" rx="160" fill="#FFFFFF"></rect>
+  </mask>
+  <g mask="url(#:r8n:)">
+    <rect width="80" height="80" fill="#FFEBCD"></rect>
+    <path d="M0 0C40 0 80 40 80 80V0H0Z" fill="url(#grad1)" filter="url(#prefix__filter0_f)"
+      transform="translate(-5 -5) rotate(30 40 40) scale(1.3)"></path>
+    <path d="M80 80C40 80 0 40 0 0V80H80Z" fill="url(#grad2)" filter="url(#prefix__filter0_f)"
+      transform="translate(5 5) rotate(-30 40 40) scale(1.3)"></path>
+    <circle cx="40" cy="40" r="32" fill="url(#grad3)" filter="url(#prefix__filter0_f)"
+      transform="translate(0 0) scale(1.2)"
+      style="mix-blend-mode: color-dodge;"></circle>
+    <path d="M40 0L80 40L40 80L0 40Z" fill="url(#grad4)" filter="url(#prefix__filter0_f)"
+      transform="rotate(45 40 40) scale(0.7)"
+      style="mix-blend-mode: overlay;"></path>
+  </g>
+  <defs>
+    <linearGradient id="grad1" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF6B6B"></stop>
+      <stop offset="50%" stop-color="#FFD93D"></stop>
+      <stop offset="100%" stop-color="#6BCB77"></stop>
+    </linearGradient>
+    <linearGradient id="grad2" x1="80" y1="80" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4D96FF"></stop>
+      <stop offset="50%" stop-color="#FF9551"></stop>
+      <stop offset="100%" stop-color="#FF78C4"></stop>
+    </linearGradient>
+    <radialGradient id="grad3" cx="50%" cy="50%" r="50%" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7DEDFF" stop-opacity="0.8"></stop>
+      <stop offset="50%" stop-color="#7DEDFF" stop-opacity="0.4"></stop>
+      <stop offset="100%" stop-color="#7DEDFF" stop-opacity="0"></stop>
+    </radialGradient>
+    <linearGradient id="grad4" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF55BB"></stop>
+      <stop offset="50%" stop-color="#EEEEEE" stop-opacity="0.5"></stop>
+      <stop offset="100%" stop-color="#42C2FF"></stop>
+    </linearGradient>
+    <filter id="prefix__filter0_f" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+      <feGaussianBlur stdDeviation="8" result="effect1_foregroundBlur"></feGaussianBlur>
+    </filter>
+  </defs>
+</svg>

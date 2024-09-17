@@ -20,14 +20,14 @@ const instrumentItalic = Instrument_Serif({
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center h-full">
       <h1 className={`${instrumentSerif.className} text-5xl font-bold`}>
         A place to <i className={instrumentItalic.className}>dump</i> your thoughts.
       </h1>
       <div>
         <div className="mt-6 text-base font-inter-regular xxs:text-[15px]">
           <h2 className="mb-4 pl-7 relative xs:leading-7">
-            <div className="w-4 h-4 rounded-full border-[5px] border-red38 flex items-center justify-center flex-shrink-0 xxs:w-[14px] xxs:h-[14px] flex-shrink-0 absolute left-0 top-1 xs:top-2"></div>
+            <div className="w-4 h-4 rounded-full border-[5px] border-border flex items-center justify-center flex-shrink-0 xxs:w-[14px] xxs:h-[14px] flex-shrink-0 absolute left-0 top-1 xs:top-2"></div>
             <div className="left-8 xxs:left-5 opacity-0 -z-50 transition-all text-white text-sm font-inter-regular p-3 shadow-lg max-w-[470px] rounded-lg absolute bottom-5 bg-dark dark:bg-darkTheme2 xxs:w-4/5 xs:text-xs">
               .
             </div>

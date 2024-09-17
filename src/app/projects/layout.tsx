@@ -22,7 +22,7 @@ function ProjectsLayoutContent({ children, params }: LayoutProps) {
     <div className="hidden flex-col md:flex h-full">
       <div className="grid w-full h-full pl-[56px]">
         <Sidebar />
-        <div className="flex flex-col overflow-hidden">
+        <div className="flex flex-col h-full">
           {children}
         </div>
       </div>
