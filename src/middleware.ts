@@ -15,7 +15,7 @@ export async function middleware(request: NextRequest) {
   if (!user && !publicRoutes.some((route) => request.nextUrl.pathname.startsWith(route))) {
     // Redirect unauthenticated users to the login page
     return NextResponse.redirect(new URL("/login", request.url));
-  } else if (user && publicRoutes.some((route) => request.nextUrl.pathname.startsWith(route))) {
+  } else if (user && request.nextUrl.pathname.startsWith("/login")){
     return NextResponse.redirect(new URL("/projects", request.url));
   }
 
