@@ -1,5 +1,3 @@
-"use server"
-
 import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
@@ -18,7 +16,7 @@ const instrumentItalic = Instrument_Serif({
   weight: "400",
 });
 
-export default function Home() {
+export default async function Home() {
   return (
     <div className="flex flex-col items-center justify-center h-full">
       <h1 className={`${instrumentSerif.className} text-5xl font-bold`}>

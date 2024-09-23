@@ -9,7 +9,7 @@ import { format } from "date-fns";
 import TableItemDropdownMenu from "./table-item-dropdown-menu";
 import TableSelectedDropdownMenu from "./table-selected-dropdown-menu";
 
-import { ArrowUpDown, Plus, Loader2, TriangleAlert, Check, OctagonX, Sparkle } from "lucide-react";
+import { ArrowUpDown, Plus, Loader, TriangleAlert, Check, Octagon, Sparkle } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 // This type is used to define the shape of our data.
@@ -19,6 +19,46 @@ import { MoreHorizontal } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 
 import { Button } from "@/components/ui/button";
+
+function getBadgeVariant(status: string) {
+  switch (status) {
+    case "processing":
+      return (
+        <div className="flex items-center gap-2 text-blue-400">
+          <span className="rounded-full bg-blue-800 border-blue-600 flex items-center justify-center border h-4 w-4"></span>
+          Processing
+        </div>
+      );
+    case "queued":
+      return (
+        <div className="flex items-center gap-2 text-blue-400">
+          <span className="rounded-full bg-blue-800 border-blue-600 flex items-center justify-center border h-4 w-4"></span>
+          Running
+        </div>
+      );
+    case "failed":
+      return (
+        <div className="flex items-center gap-2 text-red-400">
+          <span className="rounded-full bg-red-800 border-red-600 border h-4 w-4 flex items-center justify-center"></span>
+          Failed
+        </div>
+      );
+    case "ready":
+      return (
+        <div className="flex items-center gap-2 text-green-400">
+          <span className="rounded-full bg-green-800 border-green-600 border h-4 w-4"></span>
+          Ready
+        </div>
+      );
+    default:
+      return (
+        <div className="flex items-center gap-2 text-gray-400 capitalize">
+          <span className="rounded-full bg-gray-800 border-gray-600 border h-4 w-4 flex items-center justify-center"></span>
+          {status}
+        </div>
+      );
+  }
+}
 
 export const columns: ColumnDef<Project>[] = [
   {
@@ -62,17 +102,13 @@ export const columns: ColumnDef<Project>[] = [
     enableSorting: true,
   },
 
-  // {
-  //   accessorKey: "assigned",
-  //   header: ({ column }) => {
-  //     return (
-  //       <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-  //         Assigned to
-  //         <ArrowUpDown className="ml-2 h-4 w-4" />
-  //       </Button>
-  //     );
-  //   },
-  // },
+  {
+    accessorKey: "status",
+    header: "Status",
+    cell: ({ row }) => {
+      return getBadgeVariant(row.original.status);
+    },
+  },
   {
     accessorKey: "created_at",
     header: "Created At",
@@ -98,7 +134,7 @@ export const columns: ColumnDef<Project>[] = [
 
       return (
         <div className="text-right">
-          <TableItemDropdownMenu disabled={false} projectId={item.id} onRemoveProject={() => {}} />
+          <TableItemDropdownMenu disabled={item.status !== "ready"} projectId={item.id} onRemoveProject={() => {}} />
         </div>
       );
     },

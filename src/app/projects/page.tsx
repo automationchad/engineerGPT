@@ -1,6 +1,6 @@
 "use server";
 
-import { Item, columns } from "@/components/interfaces/Projects/ProjectsTable/ProjectsTable.constants";
+import { columns } from "@/components/interfaces/Projects/ProjectsTable/ProjectsTable.constants";
 import { DataTable } from "@/components/interfaces/Projects/ProjectsTable/ProjectsTable";
 import { createClient } from "@/lib/services/supabase/server";
 

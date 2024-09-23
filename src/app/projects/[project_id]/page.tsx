@@ -33,14 +33,9 @@ async function getUser() {
     .eq("id", user.id)
     .limit(1)
     .single();
-  console.log("USER DATA", loopioData);
   return loopioData;
 }
 
-const handleViewDetails = (data: Item[], item: Item) => {
-  const found = data.find((i) => i.id === item.id);
-  return found;
-};
 
 export default async function ProjectPage({ params }: { params: { project_id: string } }) {
   const project = await getProject(params.project_id as string);
@@ -57,12 +52,12 @@ export default async function ProjectPage({ params }: { params: { project_id: st
         <header className="top-0 z-10 flex justify-between h-[60px] flex-shrink-0 items-center gap-1 border-b bg-background px-4">
           <h1 className="text-xl font-medium">{project.name || "Project"}</h1>
           <div className="flex gap-2">
-            {/* <ProjectMenubar project={project} /> */}
+            
             {project.is_converted && (
-              <CommitConfirmDialog projectId={project.id} disabled={!allEntriesFinalized} onCommit={null} />
+              <CommitConfirmDialog projectId={project.id} disabled={!allEntriesFinalized || project.status === 'processing'} onCommit={null} />
             )}
-            <GroupAnswerSettings/>
-            <ConvertDialog project={project} user={user} />
+            <GroupAnswerSettings disabled={project.status === 'processing'}/>
+            <ConvertDialog project={project} user={user} disabled={project.status === 'processing'}/>
           </div>
         </header>
         <main className="flex-grow overflow-hidden">

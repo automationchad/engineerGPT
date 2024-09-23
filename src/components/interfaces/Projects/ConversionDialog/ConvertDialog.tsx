@@ -17,7 +17,7 @@ interface ConvertDialogProps {
   project: Project;
 }
 
-export function ConvertDialog({ project, user }: ConvertDialogProps) {
+export function ConvertDialog({ project, user, disabled}: ConvertDialogProps) {
   const [isConverting, setIsConverting] = useState(false);
   const [conversion, setConversion] = useState<Conversion | null>(null);
   const [conversions, setConversions] = useState<Conversion[]>([]);
@@ -65,7 +65,7 @@ export function ConvertDialog({ project, user }: ConvertDialogProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant={project.is_converted ? "outline" : "default"}>Convert</Button>
+        <Button variant={project.is_converted ? "outline" : "default"} disabled={disabled}>Convert</Button>
       </DialogTrigger>
       <DialogContent className="max-w-3xl">
         <DialogHeader>

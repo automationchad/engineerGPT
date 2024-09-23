@@ -23,6 +23,7 @@ const FilteredProjectQuestions: React.FC<FilteredProjectQuestionsProps> = ({ sec
 
   return (
     <>
+    
       <div className="col-span-4 border-r h-full border-border overflow-y-auto flex flex-col p-4 pt-0">
         <ProjectQuestionList items={filteredSections} user={user} />
       </div>

@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 
 import Link from "next/link";
 import { User } from "@/types";
+import { useUser } from "@/hooks/use-user";
 
 import {
   DropdownMenu,
@@ -82,13 +83,13 @@ export default function AccountDropdown() {
         </DropdownMenuRadioGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild className="cursor-pointer">
-          <Link href="/faq">
+          <Link href="/help">
             <HelpCircle className="mr-2 h-4 w-4" />
-            FAQ
+            Help
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild className="cursor-pointer">
-          <Link href="/settings">
+          <Link href={`/settings/${user?.id}`}>
             <Settings className="mr-2 h-4 w-4" />
             Settings
           </Link>

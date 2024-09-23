@@ -30,10 +30,12 @@ export default function TableItemDropdownMenu({ projectId, onRemoveProject, disa
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuGroup>
-          <DropdownMenuItem asChild>
+          <DropdownMenuItem asChild className="cursor-pointer">
             <Link href={`/projects/${projectId}`}>Edit project</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={onRemoveProject}>Remove project</DropdownMenuItem>
+          <DropdownMenuItem onClick={onRemoveProject} className="cursor-pointer">
+            Remove project
+          </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

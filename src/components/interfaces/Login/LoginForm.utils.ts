@@ -13,20 +13,14 @@ export async function login(formData: { email: string; password: string; remembe
     password: formData.password,
   };
 
-  console.log("Data:", data);
   const { error } = await supabase.auth.signInWithPassword(data);
 
   if (error) {
-    return { error: error.message };
+    return { error };
   } else {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    console.log("User:", user);
+    revalidatePath("/", "layout");
+    redirect("/projects");
   }
-
-  revalidatePath("/", "layout");
-  redirect("/projects");
 }
 
 // Update the signup function similarly
