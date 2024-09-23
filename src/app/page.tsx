@@ -1,5 +1,5 @@
-import Chat from "./playground/chat/page";
-import { Metadata } from "next";
+"use server"
+
 import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 

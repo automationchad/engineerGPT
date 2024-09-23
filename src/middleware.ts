@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { createClient } from "@/utils/supabase/server";
-import { updateSession } from "@/utils/supabase/middleware";
+import { createClient } from "@/lib/services/supabase/server";
+import { updateSession } from "@/lib/services/supabase/middleware";
 
 export async function middleware(request: NextRequest) {
   const supabase = createClient();
@@ -15,7 +15,7 @@ export async function middleware(request: NextRequest) {
   if (!user && !publicRoutes.some((route) => request.nextUrl.pathname.startsWith(route))) {
     // Redirect unauthenticated users to the login page
     return NextResponse.redirect(new URL("/login", request.url));
-  } else if (user && request.nextUrl.pathname.startsWith("/login")){
+  } else if (user && request.nextUrl.pathname.startsWith("/login")) {
     return NextResponse.redirect(new URL("/projects", request.url));
   }
 

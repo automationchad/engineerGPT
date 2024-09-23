@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { redirect } from "next/navigation";
 
 import { useState } from "react";
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/ui/icons";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -18,7 +18,7 @@ import Link from "next/link";
 import { login } from "./actions";
 import { Loader2 } from "lucide-react";
 import { headers } from "next/headers";
-import { createClient } from "@/utils/supabase/client";
+import { createClient } from "@/lib/services/supabase/client";
 // Define the form schema
 const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),

@@ -82,11 +82,12 @@ interface DB {
 interface DBSwitcherProps {
   className?: string;
   disabled?: boolean;
-  onDBChange?: (db: DB) => void; // Ensure this matches the parent component's type
+  onDBChange?: (db: DB) => void;
   selectedDatabase: DB;
+  variant?: "default" | "full-width";
 }
 
-export default function DBSwitcher({ className, disabled, onDBChange, selectedDatabase }: DBSwitcherProps) {
+export default function DBSwitcher({ className, disabled, onDBChange, selectedDatabase, variant = "default" }: DBSwitcherProps) {
   const [open, setOpen] = useState(false);
   const [showNewTeamDialog, setShowNewTeamDialog] = useState(false);
   const [selectedDB, setSelectedDB] = useState<DB>(groups[0].teams[0]);
@@ -114,7 +115,11 @@ export default function DBSwitcher({ className, disabled, onDBChange, selectedDa
             role="combobox"
             aria-expanded={open}
             aria-label="Select a team"
-            className={cn("w-[200px] justify-between rounded-full", className)}>
+            className={cn(
+              "justify-between rounded-full",
+              variant === "default" ? "w-[200px]" : "w-full", // Modify this line
+              className
+            )}>
             <Avatar className="mr-2 h-5 w-5">
               <AvatarImage src={`/img/circle-${selectedDB.avatar}.svg`} alt={selectedDB.label} className="" />
               <AvatarFallback>SC</AvatarFallback>
@@ -123,7 +128,11 @@ export default function DBSwitcher({ className, disabled, onDBChange, selectedDa
             <ChevronsUpDown className="ml-auto h-4 w-4 shrink-0 opacity-50" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[200px] p-0">
+        <PopoverContent
+          className={cn(
+            "p-0",
+            variant === "default" ? "w-[200px]" : "w-[400px]"
+          )}>
           <Command>
             <CommandInput placeholder="Search DB..." />
             <CommandList>
@@ -138,10 +147,7 @@ export default function DBSwitcher({ className, disabled, onDBChange, selectedDa
                       </Avatar>
                       {team.label}
                       <CheckIcon
-                        className={cn(
-                          "ml-auto h-4 w-4",
-                          selectedDB.value === team.value ? "opacity-100" : "opacity-0"
-                        )}
+                        className={cn("ml-auto h-4 w-4", selectedDB.value === team.value ? "opacity-100" : "opacity-0")}
                       />
                     </CommandItem>
                   ))}

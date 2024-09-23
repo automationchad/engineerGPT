@@ -25,6 +25,7 @@
     --success-foreground: 0 0% 98%;
     --ai: 270 50% 60%;
     --ai-foreground: 270 50% 98%;
+    --ai-border: 270 50% 20%;
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
@@ -55,8 +56,9 @@
     --warning-foreground: 48 100% 10%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 62.8% 15%;
-    --ai: 270 70% 70%;
+    --ai: 270 80% 80%;
     --ai-foreground: 270 20% 9%;
+    --ai-border: 270 70% 20%;
     --success: 142 69% 58%;
     --success-foreground: 142 69% 15%;
     --border: 0 0% 14.9%;
