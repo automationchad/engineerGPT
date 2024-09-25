@@ -31,7 +31,7 @@ const ProjectQuestionList: React.FC<ProjectQuestionListProps> = ({ items, user }
       entries: section.entries.filter(
         (question) =>
           question.query.toLowerCase().includes(searchQuery.toLowerCase()) &&
-          (!showAssignedOnly || teamIds.includes(question.assignee_id) || question.assignee_id === user.id)
+          (!showAssignedOnly || teamIds.includes(question.assignee_id) || question.assignee_id === user.loopio_id)
       ),
     }))
     .filter((section) => section.entries.length > 0);

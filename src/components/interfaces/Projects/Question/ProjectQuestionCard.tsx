@@ -33,7 +33,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ item, user }) => {
   // };
 
   const isProtected = !(
-    item.assignee_id === user.id || user.user_teams.some((team) => team.teams.loopio_id === item.assignee_id)
+    item.assignee_id === user.loopio_id || user.user_teams.some((team) => team.teams.loopio_id === item.assignee_id)
   );
 
   const isTeamAssignment = user.user_teams.some((team) => team.teams.loopio_id === item.assignee_id);

@@ -47,34 +47,33 @@ export const getLoopioData = inngest.createFunction(
         let page = 1;
         while (hasMore) {
           const { items, totalPages, totalItems } = await loopioApi.getEntries(loopioId, page);
-           const entriesData = await Promise.all(
-             items.map(async (entry) => {
-               const { data: section } = await supabase
-                 .from("sections")
-                 .select("id")
-                 .eq("loopio_id", entry.section.id)
-                 .limit(1)
-                 .single();
-               return {
-                 query: entry.question,
-                 answer: entry.answer.text,
-                 section_id: section?.id,
-                 loopio_id: entry.id,
-                 assignee_id: entry.assignee?.id,
-                 reviewer_id: entry.reviewer?.id,
-               };
-             })
-           );
+          console.log("ITEMS", items);
+          const entriesData = await Promise.all(
+            items.map(async (entry) => {
+              const { data: section } = await supabase
+                .from("sections")
+                .select("id")
+                .eq("loopio_id", entry.section.id || entry.subSection.id)
+                .limit(1)
+                .single();
+              return {
+                query: entry.question,
+                answer: entry.answer.text,
+                section_id: section?.id,
+                loopio_id: entry.id,
+                assignee_id: entry.assignee?.id,
+                reviewer_id: entry.reviewer?.id,
+              };
+            })
+          );
 
-           // Insert prepared entries
-           const { data: entries, error } = await supabase.from("entries").insert(entriesData).select();
-
+          // Insert prepared entries
+          const { error } = await supabase.from("entries").insert(entriesData).select();
 
           if (error) {
             console.error("Error creating entries:", error);
             throw error;
           }
-          createdEntries.push(...entries);
           hasMore = totalPages > page;
           page = hasMore ? page + 1 : 1;
         }
@@ -82,10 +81,13 @@ export const getLoopioData = inngest.createFunction(
 
       // Step 3: Mark project as ready
       await step.run("update-project-status", async () => {
-        await supabase.from("projects").update({ status: "ready" }).eq("id", projectId);
+        const { error } = await supabase.from("projects").update({ status: "ready" }).eq("id", projectId);
+        if (error) {
+          console.error("Error updating project status:", error);
+          throw error;
+        }
       });
-
-      return { success: true, createdSections, createdEntries };
+      return { success: true };
     } catch (error) {
       console.error("Error ingesting Loopio data:", error);
       // Update project status to 'error'

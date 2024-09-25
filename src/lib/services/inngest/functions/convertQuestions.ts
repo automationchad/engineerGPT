@@ -52,7 +52,7 @@ export const convertQuestions = inngest.createFunction(
           }
 
           const entriesWithTeam = entries.filter(
-            (entry) => teamIds.includes(entry.assignee_id) || entry.assignee_id === user.id
+            (entry) => teamIds.includes(entry.assignee_id) || entry.assignee_id === user.loopio_id
           );
 
           for (const entry of entriesWithTeam) {
