@@ -17,7 +17,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 
 import { createClient } from "@/lib/services/supabase/client";
 import { useRouter } from "next/navigation";
-import AccountDropdown from "./account-dropdown";
+import AccountDropdown from "./AccountDropdown";
 
 interface Project {
   id: string;
@@ -77,7 +77,7 @@ export default function Sidebar() {
     };
 
     fetchUserAndProjects();
-  }, []);
+  }, [supabase]);
 
   return (
     <aside className="inset-y fixed left-0 z-20 flex h-full flex-col border-r border-border">

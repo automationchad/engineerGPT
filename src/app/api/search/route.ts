@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
 import { chatCompletions } from "@/lib/services/openai";
-import { groundxSearchContent } from "@/lib/services/groundx";
+import { groundxSearchContent } from "@/lib/services/groundx/search";
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",

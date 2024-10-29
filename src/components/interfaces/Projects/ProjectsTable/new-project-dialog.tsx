@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-
+import { Project } from "@/types";
 import {
   Dialog,
   DialogContent,
@@ -35,7 +35,7 @@ const formSchema = z.object({
   document: z.instanceof(File).optional(),
 });
 
-type FormData = z.infer<typeof formSchema>;
+export type FormData = z.infer<typeof formSchema>;
 
 interface NewProjectProps {
   onCreateProject: (formData: FormData) => Promise<void>;
@@ -56,15 +56,8 @@ export function NewProjectDialog({ onCreateProject }: NewProjectProps) {
   const dataSource = form.watch("dataSource");
 
   const onSubmit = async (data: FormData) => {
-    const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("database", JSON.stringify(data.database));
-    formData.append("dataSource", data.dataSource);
-    if (data.loopioId) formData.append("loopioId", data.loopioId);
-    if (data.document) formData.append("document", data.document);
-
     setIsLoading(true);
-    await onCreateProject(formData);
+    await onCreateProject(data);
     setIsLoading(false);
     setOpen(false);
     form.reset();

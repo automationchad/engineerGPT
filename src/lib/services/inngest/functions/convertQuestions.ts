@@ -36,9 +36,9 @@ export const convertQuestions = inngest.createFunction(
         .order("loopio_id", { ascending: true });
 
       let totalProcessedEntries = conversionData?.processed_questions || 0;
-      const teamIds = user.user_teams.map((userTeam) => userTeam.teams.loopio_id);
+      const teamIds = user.user_teams.map((userTeam: any) => userTeam.teams.loopio_id);
 
-      for (const section of sections) {
+      for (const section of sections || []) {
         await step.run(`process-section-${section.id}`, async () => {
           console.log(`Processing section ${section.id}: ${section.name}`);
           const { data: entries, error: entriesError } = await supabase
@@ -74,7 +74,6 @@ export const convertQuestions = inngest.createFunction(
                 .eq("is_finalized", true)
                 .single();
 
-              
               if (existingAnswer) {
                 console.log(`Entry ${entry.id} already processed. Skipping.`);
                 continue;
@@ -138,7 +137,7 @@ export const convertQuestions = inngest.createFunction(
 
 async function fetchAIAnswer(query: string, context: string): Promise<string> {
   try {
-    const response = await fetch("http://localhost:3000/api/search", {
+    const response = await fetch("/api/search", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -160,7 +159,9 @@ async function fetchAIAnswer(query: string, context: string): Promise<string> {
     let result = "";
 
     while (true) {
-      const { done, value } = await reader?.read();
+      const readResult = await reader?.read();
+      if (!readResult) break;
+      const { done, value } = readResult;
       if (done) break;
       result += new TextDecoder().decode(value);
     }

@@ -61,6 +61,20 @@ export default function MessageArea({ onSubmit, isGenerating }: MessageAreaProps
      localStorage.setItem('cachedFileContent', fileContent);
    }, [context, fileName, fileContent]);
 
+   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+     if (e.key === "Enter") {
+       if (e.shiftKey) {
+         // Allow new line if Shift is pressed
+         return; // Do nothing, let the default behavior occur
+       }
+       e.preventDefault(); // Prevent default behavior (new line)
+       handleSubmit(e as unknown as React.FormEvent); // Call the submit function
+     } else if (e.key === "Escape") {
+       e.preventDefault(); // Prevent default behavior (new line)
+       setContext(""); // Clear the context
+     }
+   };
+
   const handleFileAttach = (e: React.MouseEvent) => {
     e.preventDefault();
     fileInputRef.current?.click();
@@ -165,6 +179,7 @@ export default function MessageArea({ onSubmit, isGenerating }: MessageAreaProps
           onChange={(e) => {
             setContext(e.target.value);
           }}
+          onKeyDown={handleKeyDown}
         />
         <div className="flex w-full gap-2 items-center p-4 ">
           <div className="flex items-center gap-1.5">

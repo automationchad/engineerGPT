@@ -10,6 +10,10 @@ export async function POST(req: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
+  if (process.env.NODE_ENV === "development") {
+    return NextResponse.json({ message: "Signout successful" });
+  }
+
   if (user) {
     await supabase.auth.signOut();
   }

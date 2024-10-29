@@ -1,0 +1,140 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Status {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  ERROR
+}
+
+model project {
+  id          String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name        String
+  loopioId    Int
+  dataSource  String
+  knowledgeId Int
+  status      Status       @default(PENDING)
+  createdAt   DateTime     @default(dbgenerated("now()"))
+  updatedAt   DateTime     @updatedAt
+  commits     commit[]
+  sections    section[]   
+  conversions conversion[]
+  userId      String       @db.Uuid
+  user        user         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  documents   document[]
+}
+
+model document {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name      String
+  filePath  String
+  createdAt DateTime @default(dbgenerated("now()"))
+  updatedAt DateTime @updatedAt
+  projectId String   @db.Uuid
+  project   project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model conversion {
+  id               String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  status           String
+  aiAnswers        ai_answer[]
+  projectId        String      @db.Uuid
+  project          project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  totalEntries     Int
+  completedEntries Int
+  errorEntries     Int
+  createdAt        DateTime    @default(dbgenerated("now()"))
+  completedAt      DateTime    @updatedAt
+}
+
+model commit {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name      String
+  createdAt DateTime @default(dbgenerated("now()"))
+  loopioId  Int
+  projectId String   @db.Uuid
+  project   project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model team {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name      String
+  createdAt DateTime @default(dbgenerated("now()"))
+  loopioId  Int
+  users     user[]   @relation("user_team")
+}
+
+model user {
+  id                String               @id @db.Uuid @default(dbgenerated("gen_random_uuid()"))
+  email             String
+  name              String
+  loopioId          Int
+  createdAt         DateTime             @default(dbgenerated("now()"))
+  teams             team[]               @relation("user_team")
+  assignedEntries   entry[]              @relation("EntryAssignee")
+  reviewedEntries   entry[]              @relation("EntryReviewer")
+  playgroundHistory playground_history[]
+  projects          project[]
+}
+
+model section {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name      String
+  createdAt DateTime @default(dbgenerated("now()"))
+  updatedAt DateTime @updatedAt
+  projectId String   @db.Uuid
+  entries   entry[]
+  project   project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model entry {
+  id         String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  query      String
+  answer     String
+  loopioId   Int
+  status     Status      @default(PENDING)
+  assigneeId String?      @db.Uuid
+  assignee   user?        @relation("EntryAssignee", fields: [assigneeId], references: [id], onDelete: SetNull)
+  reviewerId String?      @db.Uuid
+  reviewer   user?        @relation("EntryReviewer", fields: [reviewerId], references: [id], onDelete: SetNull)
+  createdAt  DateTime    @default(dbgenerated("now()"))
+  updatedAt  DateTime    @updatedAt
+  sectionId  String      @db.Uuid
+  aiAnswers  ai_answer[]
+  section    section     @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+}
+
+model ai_answer {
+  id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  content         String
+  createdAt    DateTime   @default(dbgenerated("now()"))
+  updatedAt    DateTime   @updatedAt
+  entryId      String     @db.Uuid
+  entry        entry      @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  conversionId String     @db.Uuid
+  conversion   conversion @relation(fields: [conversionId], references: [id], onDelete: Cascade)
+  status       Status     @default(PENDING)
+}
+
+model playground_history {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  query     String
+  response  String
+  settings  Json
+  userId    String   @db.Uuid
+  user      user     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(dbgenerated("now()"))
+}

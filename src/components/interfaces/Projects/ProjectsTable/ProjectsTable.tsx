@@ -15,6 +15,8 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
+import { FormData } from "@/components/interfaces/Projects/ProjectsTable/new-project-dialog";
+
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { NewProjectDialog } from "@/components/interfaces/Projects/ProjectsTable/new-project-dialog";
 
@@ -27,10 +29,9 @@ import { Project } from "@/types";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
-  onProjectCreated: (project: Project) => void;
 }
 
-export function DataTable<TData, TValue>({ columns, data, onProjectCreated }: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
@@ -57,13 +58,12 @@ export function DataTable<TData, TValue>({ columns, data, onProjectCreated }: Da
 
   const onCreateProject = async (formData: FormData) => {
     try {
-      console.log("Calling createProject action"); // Add this log
+      
       const { project, error } = await createProject(formData);
       if (error) {
         throw new Error(error);
       }
-      console.log("Project created successfully:", project); // Add this log
-      // Handle successful project creation (e.g., update table data, show success message)
+      console.log("Project created successfully:", project);
     } catch (error) {
       console.error("Error creating project:", error);
       // Handle error (e.g., show error message to user)

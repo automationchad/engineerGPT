@@ -110,10 +110,10 @@ export const columns: ColumnDef<Project>[] = [
     },
   },
   {
-    accessorKey: "created_at",
+    accessorKey: "createdAt",
     header: "Created At",
     cell: ({ row }) => {
-      const created_at = row.original.created_at;
+      const created_at = row.original.createdAt;
       return format(new Date(created_at), "MM/dd/yyyy");
     },
   },
@@ -134,7 +134,7 @@ export const columns: ColumnDef<Project>[] = [
 
       return (
         <div className="text-right">
-          <TableItemDropdownMenu disabled={item.status !== "ready"} projectId={item.id} onRemoveProject={() => {}} />
+          <TableItemDropdownMenu disabled={false} projectId={item.id} onRemoveProject={() => {}} />
         </div>
       );
     },

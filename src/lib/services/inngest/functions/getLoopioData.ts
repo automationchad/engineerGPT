@@ -53,7 +53,7 @@ export const getLoopioData = inngest.createFunction(
               const { data: section } = await supabase
                 .from("sections")
                 .select("id")
-                .eq("loopio_id", entry.section.id || entry.subSection.id)
+                .eq("loopio_id", entry.section.id)
                 .limit(1)
                 .single();
               return {

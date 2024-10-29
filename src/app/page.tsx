@@ -1,4 +1,5 @@
 import { Instrument_Serif } from "next/font/google";
+import Image from "next/image";
 import "./globals.css";
 
 
@@ -88,7 +89,7 @@ export default async function Home() {
                 href="https://www.youtube.com/watch?v=XUOlQSlIUbI"
                 target="_blank"
                 className="inline-flex align-middle">
-                <img
+                <Image
                   src="/backstory_v1.png"
                   className="w-9 mx-1 cursor-pointer scale-90 group-hover:scale-100 transition-all"
                   alt="backstory"

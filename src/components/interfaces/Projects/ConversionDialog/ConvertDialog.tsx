@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { format, formatDistanceToNow, formatDistance, formatDuration, differenceInSeconds } from "date-fns";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useUser } from "@/hooks/use-user";
 import { Button } from "@/components/ui/button";
 import { Loader, TriangleAlert, Octagon } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Project, Conversion } from "@/types";
+import { Project, User, Conversion } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { createClient } from "@/lib/services/supabase/client";
 import { handleConvert } from "@/components/interfaces/Projects/ConversionDialog/ConvertDialog.utils";
@@ -15,15 +15,17 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface ConvertDialogProps {
   project: Project;
+  disabled: boolean;
+  user: User;
 }
 
-export function ConvertDialog({ project, user, disabled}: ConvertDialogProps) {
+export function ConvertDialog({ project, user, disabled }: ConvertDialogProps) {
   const [isConverting, setIsConverting] = useState(false);
   const [conversion, setConversion] = useState<Conversion | null>(null);
   const [conversions, setConversions] = useState<Conversion[]>([]);
   const supabase = createClient();
 
-  const fetchConversions = async () => {
+  const fetchConversions = useCallback(async () => {
     const { data, error } = await supabase
       .from("conversions")
       .select("*")
@@ -39,19 +41,19 @@ export function ConvertDialog({ project, user, disabled}: ConvertDialogProps) {
         setIsConverting(false);
       }
     }
-  };
+  }, [project.id, supabase]);
 
   useEffect(() => {
     fetchConversions();
     const interval = setInterval(fetchConversions, 30000); // Check every 30 seconds
 
     return () => clearInterval(interval);
-  }, [project.id, supabase]);
+  }, [project.id, supabase, fetchConversions]);
 
   const handleConvertProject = async () => {
     setIsConverting(true);
     try {
-      const newConversion = await handleConvert(project, user);
+      const newConversion = await handleConvert(project, user, "null");
       setConversion(newConversion);
       fetchConversions();
       setIsConverting(false);
@@ -65,7 +67,9 @@ export function ConvertDialog({ project, user, disabled}: ConvertDialogProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant={project.is_converted ? "outline" : "default"} disabled={disabled}>Convert</Button>
+        <Button variant={project.is_converted ? "outline" : "default"} disabled={disabled}>
+          Convert
+        </Button>
       </DialogTrigger>
       <DialogContent className="max-w-3xl">
         <DialogHeader>

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { ReactNode } from "react";
+import { Toaster } from "@/components/ui/sonner";
+
 
 import "./globals.css";
 
@@ -23,6 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <body>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
             <div className="max-h-screen">{children}</div>
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>

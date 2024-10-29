@@ -1,0 +1,1545 @@
+QUESTIONS:
+Provide documentary evidence of existing work health and safety management systems and any third-party accreditation as applicable or relevant in the context of the delivering the requirements.
+ANSWER:
+As a SaaS provider, Evotix operates in a very low risk environment from a Health and Safety perspective with people either working from offices or from home. A Health and Safety policy is in place but Evotix has chosen not to pursue ISO 45001 or any other Health and Safety accreditation.
+
+====
+
+QUESTIONS:
+Describe any actions your organisation undertakes to support this code and/or policy including what actions you require/request your contractors to do. For example, are your contractors registered on the Home Affairs Modern Slavery register, have your contractors lodged their WGE compliance certificate.
+ANSWER:
+Please refer to 'Attachment XX - Modern Slavery Statement'.
+
+====
+
+QUESTIONS:
+Do you have Product Liability Insurance
+ANSWER:
+Limit: $2,000,000
+Policy term: 30/06/2023 - 01/06/2024
+
+====
+
+QUESTIONS:
+Do you have Public Liability Insurance
+ANSWER:
+Limit: £10,000,000
+Policy term: 30/06/2023 - 01/06/2024
+
+====
+
+QUESTIONS:
+Do you have Professional Indemnity Insurance
+ANSWER:
+Limit: $10,000,000
+Policy term: 30/06/2023 - 01/06/2024
+
+====
+
+QUESTIONS:
+Do you have Employers Liability Insurance
+ANSWER:
+Limit: £15,000,000
+Policy term: 30/06/2023 - 01/06/2024
+
+====
+
+QUESTIONS:
+List any current certifications regarding your diversity status, including the organization(s) (e.g., NMSDC, WBENC, NGLCC, etc.), certification number(s), and expiration date(s).
+ANSWER:
+Not applicable – Evotix do not hold any diversity related certifications. 
+
+====
+
+QUESTIONS:
+If you identify as a minority-owned or women-owned business, please describe which diverse group(s) are represented in your ownership and control of management and daily business operations.
+ANSWER:
+Not applicable – Evotix is not a minority-owned or women-owned business.
+
+====
+
+QUESTIONS:
+Describe how your company will report its diverse spend related to any product or service provided.
+ANSWER:
+Evotix do not currently report on diverse spend. As a SaaS organisation that offers online solutions and industry knowledge-based expertise, our supply chain is very small and limited. Evotix has multiple internal policies and practices that we adhere to with regards to diversity, fair labor practices, sustainability, ethics and compliance, risk management, and other key corporate best practice frameworks. To the extent possible, and within the context of each unique business need or decision, we uphold and support the importance and value of diverse suppliers.
+
+====
+
+QUESTIONS:
+Provide details of your leadership team
+Please provide a histogram or organisation chart showing the company’s structure.  
+ANSWER:
+Evotix is a private company and the people and roles noted below make up our Leadership Team:
+- Matthew Elson, Chief Executive Officer
+- Kimberly Baker, Chief Customer Officer
+- Jim Rea, Chief Technology Officer
+- Joe Harmon, Chief Product Officer
+- Ben Woodruff, Chief Revenue Officer
+- Michelle Genser, Chief Marketing Officer
+- Peter Shiers, VP Professional Services.
+
+====
+
+QUESTIONS:
+What is your postal address?
+Provide your post address.
+What is your mailing address?
+Does the Vendor have a permanent establishment for Australian Tax purposes?  If not, does the Vendor hold an exemption for withholding tax.
+ANSWER:
+Level 2, Building C,
+355 Scarborough Beach Road, Osborne Park, 
+Perth WA 6017 AUSTRALIA
+
+====
+
+QUESTIONS:
+Please describe the ownership structure of your company.
+Ownership structure
+Parent Company (if applicable)
+Group company name (if applicable)
+ANSWER:
+Evotix is privately held and owned by Symphony Technology Group (STG).
+
+====
+
+QUESTIONS:
+Information regarding any and all lawsuits, liens, restraining orders, consent decrees, or legal actions in progress or which have been brought against your company in the past 3 years
+Has your company been subject to any lawsuits or litigation over the last three years?
+Describe any current court cases or litigation your company is involved in.
+ANSWER:
+Evotix is a privately held company. As such, we do not disclose information concerning pending, ongoing, or settled litigation and/or arbitration history.
+
+====
+
+QUESTIONS:
+Is your company owned by private equity? If yes, please identify the owners.
+Please provide an overview of your investors/ownership.
+Is your company independent or part of a private equity portfolio?
+ANSWER:
+Symphony Technology Group (STG) is a private equity partner to market leading companies in data, software, and analytics. The firm brings experience, flexibility, and resources to build strategic value and unlock the potential of innovative companies. Partnering to build customer-centric, market winning portfolio companies, STG creates sustainable foundations for growth that bring value to existing and future stakeholders. The firm is dedicated to transforming and building outstanding technology companies in partnership with world class management teams. STG’s expansive portfolio has consisted of more than 50 global companies. For more information, please visit www.stg.com.
+
+====
+
+QUESTIONS:
+Please confirm that all labour utilized through your supply chain is either employed in accordance with EU Labour law or if outside the EU, then within the ILO standards
+ANSWER:
+To the extent applicable to Evotix operations, Evotix complies with the laws of the EU member states and other countries where it operates. As a SaaS company, we have an extremely limited supply chain (e.g., computer equipment and office supplies). Our Code of Conduct and other corporate policies incorporate labor and supplier standards and principles. All Evotix procurement agreements include requirements to abide by applicable laws.
+
+====
+
+QUESTIONS:
+If potential conflicts of interest with your current customers arose, how would you deal with them?
+Please confirm that any work awarded to you will not lead to any conflict of interest with any of your existing clients.
+Disclosure any existing or potential conflicts of interest related to your proposed services or relationship with our company
+ANSWER:
+At Evotix, we make every attempt to avoid conflicts of interest and are mindful of circumstances that could suggest even the appearance of such a conflict. All of our employees attest to understanding our Code of Conduct which contains specific language, action items, and support resources around conflicts of interest issues. All employees and, if applicable, contractors are subject to confidentiality agreements. 
+We conduct all professional responsibilities and business transactions with the best interests of our clients in mind. If we believe a conflict of interest exists, it is reported, investigated, and tracked to a resolution point. Further, our entire business model is based on reducing such risks, and we provide advisement and solutions to our clients that are specifically focused on conflicts of interest. 
+Given the scope of our proposed solution and services for [Client Name], there are no conflicts of interest for us to sell our products to customers in the same industry, as there is no intersection with product development of any peer company.
+
+====
+
+QUESTIONS:
+What are the main anti-bribery and corruption risks for your firm?
+What risks does your organization face when it comes to bribery and corruption?
+Describe the bribery and corruption exposures your company has and how you address them.
+ANSWER:
+While bribery and corruption are among the most common risks that global companies face, Evotix is better positioned than many organisations to avoid, recognise, and address these issues. Our focus on risk and compliance makes us highly aware of where and how bribery and corruption can take place. Our staff is fully trained on these issues via our own, award-winning ethics and compliance training content. We also incorporate ABC issues into our Code of Conduct. Given Evotix's position as an online SaaS provider, and the fact that we are a private organisation, our risk profile is lower compared to many organisations operating in different markets. Our ABC Policy is in place to help our employees define, understand, recognise, stop, and report bribery or corrupt practices. Our compliance hotline also provides an anonymous whistleblowing forum, and we have formalised whistleblowing and anti-retaliation policies in place. Our ABC policy also incorporates information about engaging with government officials. All Evotix employees, at all levels, are expected to uphold our policies and/or speak-up if they see others failing to do so.
+
+====
+
+QUESTIONS:
+ABN:
+ANSWER:
+75 063 776 705
+
+====
+
+QUESTIONS:
+Has your company been fined/convicted for an environmental infringement over the last three years (If yes, attachment is mandatory)?
+Has your company been fined/convicted for an environmental infringement over the last three years? (If yes, attachment is mandatory).
+ANSWER:
+No.
+
+====
+
+QUESTIONS:
+Have you implemented a vigilance plan or are you setting up the implementation of a vigilance plan?
+ANSWER:
+No.
+
+====
+
+QUESTIONS:
+Are you certified to an internationally recognized environmental management system such as ISO 14001 or EMAS? If the answer is NO are you seeking such a certification? What is your target date for achieving this?
+Does your company have an Environmental management system (e.g ISO14.001 or EMAS)?
+ANSWER:
+No, this is not applicable to our business model. 
+ 
+Evotix is a SaaS provider with an extremely limited supply chain. As such, we are not subject to particular environmental regulations. As an organisation, we recognise and uphold the values of sustainability and environmental protection via our internal practices which are reflected in our Code of Conduct. To the extent possible, we choose environmentally friendly products, services, and vendors to support our day-to-day operations. We are also committed to recycling and other sustainable practices within our offices.
+
+====
+
+QUESTIONS:
+The Queensland Government is committed to providing training and employment outcomes and business opportunities for Indigenous Queenslanders. Please provide details of what the supplier is doing to: improve the participation of Indigenous people in the workforce; and/or engage with Indigenous suppliers.
+Does your company have an Indigenous engagement plan? For example, Indigenous employment, procurement or community investment/partnership activities. Please provide details.
+ANSWER:
+Evotix values diversity and aims to create a vibrant and inclusive workplace, reflective of the communities in which it operates. Equal opportunity is at the core of the Company’s People Strategy as the Board believes a diverse workforce is critical for Evotix’s business to attract and retain the most talented people. We firmly believe that one of our fundamental strengths as a company is our diversity, not just in gender but in the many cultures, skills and experiences of our employees around the globe.
+ 
+Our internal hiring practices allow for a diversified staff consisting of multiple nationalities, races and ethnic and religious beliefs. We truly believe in building a culture where diversity is a competitive advantage, people and their ideas are respected and innovation is fostered. For us, inclusivity means more than being open to people from diverse backgrounds. It entails valuing, respecting and leveraging unique contributions to our business, our people and our clients.
+ 
+For more information, please refer to 'Attachment XX - Equal Employment Opportunity Policy'.
+
+====
+
+QUESTIONS:
+Headquarters Location (address, city, state, zip)
+ANSWER:
+205 West Wacker Drive, Suite 1800 
+Chicago, IL 60606
+
+====
+
+QUESTIONS:
+Australian Company Number (ACN)
+ANSWER:
+063 776 705
+
+====
+
+QUESTIONS:
+SAI360 Pty Ltd Australian Company Registration Information
+ANSWER:
+Entity: SAI360 Pty Ltd
+Australian Company Number (ACN): 063 776 705
+Australian Business Number (ABN): 75 063 776 705 issued by the Australian Business Register (ABR) 
+ 
+Registered Address
+Level 2, Building C
+355 Scarborough Beach Road, Osborne Park, 
+Perth WA 6017 AUSTRALIA
+ 
+The company is registered under the Corporations Act 2001 and is taken to be registered in Western Australia and the date of commencement of registration is the second day of March, 1994. 
+ 
+[Name change issued by the Australian Securities and Investments Commission (ASIC) on the eleventh day of April 2023.]
+
+====
+
+QUESTIONS:
+Revenue from main market (country) - % of revenue
+ANSWER:
+Due private ownership, we do not share detailed financial information.
+
+====
+
+QUESTIONS:
+What actions and initiatives is your company taking to promote gender equality in its workplace?
+ANSWER:
+Evotix is an equal opportunity employer.
+ 
+Our internal initiatives to promote gender equality include:
+- Our annual salary/compensation review includes a specific review of any gender pay equity matters. We use benchmarking data to ensure salary banding is applied.
+- Recruitment practices actively support equal opportunities and we offer flexible work practices to promote a diverse workforce.
+- Flexible working arrangements and parental leave policies are in place to encourage greater diversity in the workplace.
+- Female leadership role modelling is promoted and encouraged through-out the organisation at different levels
+For more information, please see 'Attachment XX - Equal Employment Opportunity Policy'.
+
+====
+
+QUESTIONS:
+How diversified is your customer base?
+ANSWER:
+Evotix's customer base is extremely diverse, with key clients in the Americas, APAC and EMEA regions. They vary in sizes and complexity and require training, technology and services to cover a wide range of compliance, risk ethics, audit, legal and EH&S requirements. Our customer base represents over 48 separate industries, this includes iconic brands in many sectors including Government and Defense Contracting, Global Manufacturing, Consumer Products, Retail, Business Services, and Healthcare.
+
+====
+
+QUESTIONS:
+Please provide a rated financial report covering the last year.
+Is your company financially sound? Provide evidence.
+Please provide annual financial audits.
+Are you subject to third-party audits? If yes, please provide copies of the latest reports.
+Company Stability
+Financial Stability
+ANSWER:
+Evotix is privately owned, thus we do not share detailed financial information with clients nor prospective clients. We are a financially stable organisation that has been in operation for decades. We are owned by Symphony Technology Group (STG), who makes robust investments across its portfolio.
+ 
+Please see 'Attachment XX - Evotix Statement of Financial Stability' which details a signed letter from our CFO which contains additional details, including information about the previous 12-month period.
+ 
+Should [Client Name] have any additional, pressing concerns we may consider arranging a discussion between one of Evotix's operations or finance leaders and a member of your leadership team.
+
+====
+
+QUESTIONS:
+Credit rating
+ANSWER:
+Due to our private ownership, we do not share detailed financial information.
+
+====
+
+QUESTIONS:
+What is the average tenure (in years) of your client base?
+ANSWER:
+Our average tenure is between 9-10 years.
+
+====
+
+QUESTIONS:
+Your Company's Carbon Statement
+Will you be able, as part of your contract with WCC, to provide us with the carbon emissions associated with the provision of these goods/services to us?
+ANSWER:
+Evotix does not have a carbon statement.
+
+====
+
+QUESTIONS:
+Does your company have ownership of action on climate change within the most senior level of leadership in your organisation?
+ANSWER:
+No.
+
+====
+
+QUESTIONS:
+Is your company carbon neutral for its operations (scope 1 & 2 footprint)? If no, does your company have a carbon neutral target?
+ANSWER:
+No.
+
+====
+
+QUESTIONS:
+Has your company set, or does your company plan to set, a science-based greenhouse gas emissions reduction target?
+ANSWER:
+No.
+
+====
+
+QUESTIONS:
+Can you offer inclusive innovation to promote collaboration with social entrepreneurs (e.g. co-contracting)?
+ANSWER:
+No.
+
+====
+
+QUESTIONS:
+Who are your current shareholders and what is their share in your company’s equity?
+ANSWER:
+As a private corporation, Evotix respectfully declines to provide shareholder information. Evotix's legal entity name is SAI360 Pty Ltd and is formed in Australia and is owned 100% by SAI360 Holdings I (Australia) Pty Ltd, an Australian proprietary limited company and part of the SAI360 Group. The SAI360 Group, including SAI360 Pty Limited, is ultimately held by interests associated with Symphony Technology Group, being the limited partnerships that comprise the STG Fund VI and certain affiliates. There is no ultimate beneficial owner with a 25% or more interest. 
+
+====
+
+QUESTIONS:
+Will SAI360 using subcontractors for the implementation project in case the implementation project is primed by SAI360?
+ANSWER:
+Evotix shall be entitled to use subcontractors to perform some, or all, of the Services and Evotix shall remain liable for work performed by its subcontractors. Evotix is also responsible for all its personnel.
+
+====
+
+QUESTIONS:
+Does your organisation have a documented Corrective / Preventative Action Procedure?
+ANSWER:
+Evotix are certified to ISO 9001 and have a non-conformity process in place which would be followed, including the implementation of corrective actions as appropriate.
+
+====
+
+QUESTIONS:
+Does your company have ownership of action on modern slavery within the most senior level of leadership in your organisation?
+ANSWER:
+N/A
+
+====
+
+QUESTIONS:
+Does your company actively monitor and manage physical and transition climate change risk as part of your risk management framework or processes?
+ANSWER:
+No.
+
+====
+
+QUESTIONS:
+Is your company a social enterprise, or are any material sub-contractors (if relevant) for this service social enterprises?
+ANSWER:
+No.
+
+====
+
+QUESTIONS:
+Is your company part of the Buy Social Corporate Challenge by Social Enterprise UK?
+ANSWER:
+No.
+
+====
+
+QUESTIONS:
+Our MSA is included for your team's review and comments.
+Please find attached standard MSA contract template for your review and consideration. If selected for award, supplier will be required to align with the terms and conditions. Please download, review, and (if necessary) mark-up with track changes "ON," and upload your redlined version. Any/all revisions to this agreement will be evaluated and taken into consideration, as part of the Supplier's final score.
+Please review our attached MSA and accept the terms. If you do not accept the terms, provide comments and return with your proposal.
+Our standard agreement is attached. Please provide comments as part of your RFP response.
+Please review and redline the provided MSA for inclusion into the future agreement.
+We require adherence to our contract terms. A copy of our agreement is attached. Please review and note any excpetions you have via tracked changes.
+ANSWER:
+Evotix would be happy to provide full review and comments on [Client Name]'s provided MSA, should your team decide that our proposed solution is the best to meet your needs. Though we are open to reviewing your provided MSA in the future, due to the high volume and complexity of RFPs we receive, we respectfully decline to provide full contract reviews and redlines during the preliminarily stages of RFP processes. Additionally, we typically suggest use of our contract since it is designed specifically for SaaS solutions, tailored to each clients' needs, and since it offers full protection for both parties. Our agreements reflect appropriate terms around intellectual property, warranties, indemnification, and SLAs. We hope to have the opportunity to engage with The [Client Name] Team around such terms to enable delivery of your ethics and compliance training. Should you select Evotix's solution, we will work with [Client Name] in good faith and negotiate terms for the mutual benefit of both parties.
+
+====
+
+QUESTIONS:
+Do you have any content or technology partners that support your solution?
+List partnerships the company has in relation to the proposed services.
+Please describe how your company engages with other companies to ensure the best possible solutions.
+Do you have partnerships that help users of your product stay abreast of changes in standards, technological advancements, or legal and legislative changes?
+What partnerships and affiliations does your company have?
+ANSWER:
+Evotix leverages a wide variety of partnerships to enhance and deliver our solutions regionally and across the globe. Information about the scope of the partnerships and each entity is available here: https://www.evotix.com/partners. 
+
+====
+
+QUESTIONS:
+What is it about your company, your product and/or service, which differentiates you from the competition? Detail any further information you believe will be beneficial in support of this Request for Proposal.
+ANSWER:
+Since being founded we have been helping companies take a more integrated approach to managing risk. Our world-class solutions and renowned team of experts provide advice at every step ensuring companies have the information needed to make the decisions required to protect and grow their businesses and their reputation. We have global reach with locations across EMEA, US and APAC, powered by local expertise and knowhow.
+ 
+Our mission is to help organisations to protect their brands by proactively managing risk to achieve business excellence, growth, sustainability and trust. Through our dedication to finding the best new and innovative method we have grown to be a leader and visionary in environmental, health, safety and sustainability (EHS&S) challenges.
+ 
+Our solutions empower risk management professionals to create, communicate, monitor and evaluate their programs, to meet their business objectives and build a culture of safety, integrity and compliance. We engage with our customers on both global and local projects, in one or many languages, and in one or many risk areas. Our differentiation is based on the high quality of our individual offerings and our ability to connect all the elements of a risk management program, producing greater effectiveness through proven best practices.
+ 
+One of Evotix’s key advantages is that we are a global organisation with a local presence. As such, not only do we understand how to build a solution with an international audience in mind, but we also understand the requirements for successful implementation and support of large-scale, international and integrated risk management programs.
+
+====
+
+QUESTIONS:
+Does your organization have a Human Resources plan to deal with pandemic events?
+ANSWER:
+Evotix is committed to maintaining the continuity of our operations and services throughout any pandemic events.
+ 
+As preparedness is core to our business, we want to reassure customers we have a geographically dispersed workforce that utilises a cloud-based architecture model and distributed data center approach, which means we can operate without any service disruptions. We have also taken steps to ensure that the roles within our workforce that can telework are prepared and ready to do so at a moment’s notice.  
+ 
+The safety and well-being of our employees is paramount, so we have put several travel safety precautions in place in an abundance of caution to limit exposure to our workforce and local communities. We continually reassess and adjust these precautions as needed.  
+
+====
+
+QUESTIONS:
+Does your company have policies, guidelines (or similar) in place for the following: Corporate Social Responsibility, Environmental, Human Rights, Forced Labor (including child labor) Bribery and Corruption, Health and Safety, Supply chain policy?
+Do you have labour and human rights practices and policies in place?
+Are Human Resource policies approved by management, communicated to Constituents and an owner to maintain and review?
+Does your organization comply with all local laws and regulations regarding abolition of child labour and the elimination of all form of forced and compulsory labour?
+Does your organization have polices and processes in place prohibiting child labour, the exploitation of workers, the use of forced and compulsory labour and human trafficking in its business and across its supply chain? (If yes, attachment is mandatory)
+Have you implemented a CSR policy (environmental, economical, social, civic ... ) ? (Please provide jutsifications for all answers)
+ANSWER:
+As an organisation highly focused on compliance, Evotix complies with all laws and regulations that are applicable to our business model, operations, and global reach. Many of our policies are further incorporated into our Code of Conduct and CSR approach. Please note that as a SaaS company, our supply chain is highly limited (e.g., office supplies and computer equipment).
+
+====
+
+QUESTIONS:
+Does your company have policies, guidelines (or similar) in place for the following: Corporate Social Responsibility, Environmental, Human Rights, Forced Labour (including child labour) Bribery and Corruption, Health and Safety, Supply chain policy?
+Do you have labour and human rights practices and policies in place?
+Are Human Resource policies approved by management, communicated to Constituents and an owner to maintain and review?
+Does your organization comply with all local laws and regulations regarding abolition of child labour and the elimination of all form of forced and compulsory labour?
+ANSWER:
+Yes, as an organisation highly focused on compliance, Evotix complies with all laws and regulations that are applicable to our business model, operations, and global reach. Many of our policies are further incorporated into our Code of Conduct and CSR approach. Please note that as a SaaS company, our supply chain is highly limited (e.g., office supplies and computer equipment).
+
+====
+
+QUESTIONS:
+Can we audit your 1/2 tier vendors or make the audits available to us? (working conditions, training, health, safety, etc.)?
+Do you allow customers to audit your third-party providers?
+Please provide copies of your vendor audits to ensure compliance with labor and safety laws.
+How do you ensure that your vendors are compliant with labor and safety laws and regulations?
+ANSWER:
+Evotix does not allow clients to audit our company, nor our vendors. Evotix's internal company policies and Code of Conduct prohibit us from engaging with any supplier that does not behave ethically and responsibly and does not comply with all applicable compliance regulations and laws. All Evotix client agreements and procurement agreements incorporate requirements for compliance with all applicable laws and regulations.
+ 
+Please note that Evotix has a highly limited supply chain (limited to office supplies and IT equipment). Our data center services for Cloud hosting are provided by Amazon Web Services (AWS), an ISO 27001-certified and Type 2 SOC 1, Type 2 SOC 2 accredited partner. Information about AWS's compliance and audits can be accessed here: https://aws.amazon.com/compliance/programs.
+
+====
+
+QUESTIONS:
+Has your organization been convicted of breaching any human rights and/or health and safety laws and regulations over the past 5 years (e.g. UK Modern Slavery Act)?
+Has your company been convinced for any breaches of employment laws or any infringement of health and safety legislation in the past 3 years? (If yes, attachment is mandatory)
+ANSWER:
+No.
+
+====
+
+QUESTIONS:
+Has your organization been convicted of breaching any human rights and/or health and safety laws and regulations over the past 5 years (e.g. UK Modern Slavery Act)?
+ANSWER:
+Not applicable, Evotix have not breached any human rights and/or health and safety laws and regulations.
+
+====
+
+QUESTIONS:
+Do you have a process in place to ensure changes to laws or regulations are identified and implemented into controls and processes? If yes, please upload supporting documentation and/or provide overview. If no, please provide comment.
+ANSWER:
+Evotix analyzes the laws applicable to its operations in the jurisdictions where we do business, and we are compliant with the laws and regulation that apply to us. We template and process reviews internally, and consult outside counsel when/if needed, to ensure ongoing compliance as changes in laws come across. 
+ 
+Evotix follows applicable regulatory requirements required to support [Client Name]. We conduct regular compliance risk assessments monthly, with quarterly Board reporting. Based on monitoring changes in environment and regulatory matters, routine refreshment of policies and procedures are conducted as needed. Material compliance matters are discussed internally as per normal protocol. Evotix, as a matter of normal business, reviews any changes to laws and makes appropriate adjustments to ensure compliance. This is done through weekly meetings we hold with local regional internal counsel or public announcements. We further have relationships with local outside counsel in all regions who we regularly interact with and participate in continuing legal education programs and client alerts. No document explaining this process is available.
+
+====
+
+QUESTIONS:
+Does your company have a documented Sustainability Policy that addresses (environmental, social and governance) ESG principles, and at a minimum ensures compliance with all applicable environmental laws and regulations? If yes, please attach a copy of the document.
+ANSWER:
+Evotix is a SaaS provider with an extremely limited supply chain. As such, we are not subject to particular environmental regulations. As an organisation, we recognise and uphold the values of sustainability and environmental protection via our internal practices which are reflected in our Code of Conduct. To the extent possible, we choose environmentally friendly products, services, and vendors to support our day-to-day operations. We are also committed to recycling and other sustainable practices within our offices. 
+ 
+For further details, please refer to 'Attachment XX - Environmental Policy'.
+
+====
+
+QUESTIONS:
+Does your company measure its CO2 emissions? If No, why not?
+ANSWER:
+No, Evotix is a SaaS provider with an extremely limited supply chain and a minimal net carbon footprint. As an organisation, we recognise and uphold the values of sustainability and environmental protection. To the extent possible, we choose environmentally friendly products, services, and vendors to support our day-to-day operations. We are also committed to recycling and other sustainable practices within our offices.
+ 
+For further details, please refer to 'Attachment XX - Environmental Policy'.
+
+====
+
+QUESTIONS:
+Does the Supplier have in place procedures tor identifying, assessing, and controlling risks associated with discrimination and harassment in the workplace?
+Does your organisation ensure that employees have adequate levels of awareness to promote a safe and inclusive environment for all, including visitors and clients, and regardless of (at least) gender incl. non-binary, ethnicity and sexual orientation?
+Does your organization have formalized policies or practices that prohibit any form of discrimination, harassment, or bullying in the workplace?
+Do you have a formalized whistleblowing policy and procedure?
+Does your company Code of Conduct include anti-harassment advisement?
+Do you have procedures in place to prevent retaliation against employees who report harassment or other concerns?
+ANSWER:
+All Evotix employees are required to undergo training anti-harassment and discrimination training upon onboarding and at a regular cadence once tenured. Additionally, we deploy two training modules on respectful workplace behaviors and communication, and train annually on our Code of Conduct, which incorporates strong anti-harassment/bullying and speak-up advisement. Our Code prescribes our ethical values as well our responsibilities to communities we operate in. It reflects our commitment to an ethical work environment and to demonstrating integrity throughout our organisation. Evotix internally publishes our Code, and all other policies, on our corporate intranet so our staff may reference them at any time. Online training content may also be referenced post-training at any time via our internal LMS. Evotix promotes and supports a speak-up culture. We maintain an employee hotline, so concerns or grievances of any type may be reported anonymously, if desired. Employees may also report issues directly to their own manager or to any manager that is perceived as an ally within the organisation. We take all types of concern-raising very seriously and leverage a standardised process for investigating, documenting, and addressing all reported issues, whether reported via the hotline, informally in the office, or via any other types of communication. Evotix also maintains and enacts a global whistleblower policy to protect any employee who speaks-up from retaliation. 
+ 
+ 
+For further details, please refer to:
+Attachment XX - Code of Conduct
+Attachment XX - Whistleblower Policy
+
+====
+
+QUESTIONS:
+Describe how you ensure your supply chain is environmentally friendly.
+Do you have an ISO 14001 Certification?
+Describe how your company supports green environmental principles.
+Do you utilize environmentally friendly products?
+Do you recycle materials in your offices?
+What policies do you have in place to protect the environment?
+ANSWER:
+Evotix is a SaaS provider with an extremely limited supply chain. As an organisation, we recognise and uphold the values of sustainability and environmental protection via our internal practices which are reflected in our Code of Conduct. To the extent possible, we choose environmentally friendly products, services, and vendors to support our day-to-day operations. We are also committed to recycling and other sustainable practices within our offices, including the recycling of IT equipment. When the latter is not possible, we leverage environmentally safe disposal methods. 
+ 
+For further details, please refer to 'Attachment XX - Environmental Policy'.
+
+====
+
+QUESTIONS:
+Describe how you ensure your supply chain is environmentally friendly.
+Do you have an ISO 14001 Certification?
+Describe how your company supports green environmental principles.
+Do you utilize environmentally friendly products?
+Do you recycle materials in your offices?
+What policies do you have in place to protect the environment?
+ANSWER:
+Evotix is a SaaS provider with an extremely limited supply chain. As such, we are not subject particular environmental regulations. As an organisation, we recognise and uphold the values of sustainability and environmental protection via our internal practices. To the extent possible, we choose environmentally friendly products, services, and vendors to support our day-to-day operations. We are also committed to recycling and other sustainable practices within our offices.
+ 
+For further details, please refer to 'Attachment XX - Environmental Policy'.
+
+====
+
+QUESTIONS:
+Do you have a formalized environmental policy?
+Describe your efforts toward reducing GHG.
+What actions does your company take to reduce or mitigate the climate change impacts of your business?
+Do you recycle materials in your office?
+What commitments has your organization made to the environment and sustainability?
+What efforts does your company make to reduce carbon levels?
+ANSWER:
+Evotix is a SaaS provider with an extremely limited supply chain. As such, we are not subject to particular environmental regulations. As an organization, we recognize and uphold the values of sustainability and environmental protection via our internal practices which are reflected in our Code of Conduct. To the extent possible, we choose environmentally friendly products, services, and vendors to support our day-to-day operations. We are also committed to recycling and other sustainable practices within our offices. We work with appropriate electronics recycling services to safely and sustainably dispose of the devices issued to our employees or used in our offices in an environmentally friendly way. 
+ 
+All Evotix employees are trained on multiple key risk and compliance topics. Training cadence or subject matter may vary based on role, tenure/onboarding status, or location. Training is assigned and conducted online via our corporate LMS. Our Safety and Environment in the Workplace training covers understanding the importance of protecting the environment through conservation, recycling, and waste disposal. Our Code of Conduct training defines parameters of cooperation, collaboration, communication, and standards of success. It includes modules specifically covering sustainability at work, sustainable practices, navigating issues of sustainability appropriately/speaking up, and overcoming barriers to taking action.
+ 
+For further details, please refer to:
+Attachment XX - Environmental Policy
+Attachment XX - Code of Conduct 
+Attachment XX - Health and Safety Policy
+
+====
+
+QUESTIONS:
+Do you have an Ethical Code of Practice / Code of Conduct (or simular) in play?
+Governance
+ANSWER:
+Evotix has a code of conduct for all employees that prescribes our ethical values as well our responsibility to community we operate in. Evotix's values serve as the foundation for our actions as we perform our professional responsibilities. They reflect our commitment to an ethical work environment and to demonstrating integrity throughout our organization. Evotix operates under a governance framework comprising of the company's constitution and its policies, codes and procedures, published on the corporate internet for all staff and contractors.
+
+====
+
+QUESTIONS:
+Please confirm that all labor utilized through your supply chain is either employed in accordance with EU Labor law or if outside the EU, then within the ILO standards.
+Does your organisation comply with all local laws and regulations regarding money laundering?
+Provide support for compliance with international and local laws and regulations.
+Evidences to comply with:
+Supplier should indicate laws and regulations provided by the solution (in case of any applicable for legal information ).
+Describe your commitment to compliance with antitrust laws and practices and how your company implements this.
+ANSWER:
+To the extent applicable to its global business operations, Evotix complies with all relevant laws and regulations.
+
+====
+
+QUESTIONS:
+Your statement about your company's approach to the UK Modern Day Slavery Act 2015
+Modern Slavery Policy (Australia only)
+Is your company aware of the Modern Slavery Act (2018)?
+If YES - please provide detail on how the company is ensuring it meets the expectations of the act.
+Is your organisation subject to reporting under the Australian Modern Slavery Act (2018) and/or the UK Modern Slavery Act (2015)? If yes, please provide a copy of the most recent statement.
+Modern Slavery Act Is your organisation required to report under the Modern Slavery Act (Cth) 2018?  If yes, attach a copy of your modern slavery statement(s).
+Describe your compliance to modern slavery legislation and CLIENT's reporting requirements.
+ANSWER:
+Evotix fully supports all national and international efforts to promote ethical principles and work practices and in particular the efforts to prevent exploitation and abuse associated with modern slavery and human trafficking.  
+ 
+To hold an individual in slavery is a violation of fundamental human rights and a crime. Evotix recognises this takes various forms, such as slavery, servitude, forced and compulsory labor and human trafficking, all of which have in common the deprivation of a person's liberty by another for the purposes of exploiting them for personal or commercial gain. 
+ 
+Evotix takes a zero-tolerance approach to modern slavery and is committed to acting ethically and with integrity in all its business dealings and relationships and in implementing and enforcing effective systems and controls to ensure modern slavery is not taking place anywhere in its business operations or in any of Evotix's supply chains. Evotix expects the same high standards from its suppliers, contractors and other Third Parties. 
+ 
+Please refer to 'Attachment XX - Modern Slavery Statement'.
+
+====
+
+QUESTIONS:
+Details of immediate parent company:
+- Full name of the immediate parent company
+- Registered office address (if applicable)
+- Registration number (if applicable)
+
+(Please enter N/A if not applicable)
+ANSWER:
+Parent company: Evotix Holdings Ltd
+Registered address: Prism House, 2 Rankine Avenue, East Kilbride, South Lanarkshire, G75 0QF, United Kingdom
+Registration number: 07784576
+DUNS: 45-816-9869
+VAT: GB 205 8497 93
+
+====
+
+QUESTIONS:
+COMPANY NAME (APAC ENTITY)
+ANSWER:
+Trading Name: Evotix
+Legal Name: SAI360 Pty Ltd
+
+====
+
+QUESTIONS:
+Describe how your company promotes diversity and inclusion, including the details of any diversity and inclusion policies within your company in respect of your personnel and your contractors.
+ANSWER:
+Evotix values diversity and aims to create a vibrant and inclusive workplace, reflective of the communities in which it operates. Equal opportunity is at the core of the Company’s People Strategy as the Board believes a diverse workforce is critical for Evotix’s business to attract and retain the most talented people. We firmly believe that one of our fundamental strengths as a company is our diversity, not just in gender but in the many cultures, skills and experiences of our employees around the globe.
+ 
+Our internal hiring practices allow for a diversified staff consisting of multiple nationalities, races and ethnic and religious beliefs. We truly believe in building a culture where diversity is a competitive advantage, people and their ideas are respected and innovation is fostered. For us, inclusivity means more than being open to people from diverse backgrounds. It entails valuing, respecting and leveraging unique contributions to our business, our people and our clients.
+ 
+Please refer to 'Attachment XX - Equal Employment Opportunity Policy'. 
+
+====
+
+QUESTIONS:
+Do you have a company-wide environmental risk register? If yes, please provide evidence.
+ANSWER:
+The very low likelihood of an Environmental risk happening and/or the impact of any Environmental risk which would be relatively likely to happen result in such a low risk level for Evotix that they are not considered to be sufficient enough to be recorded on the Risk Register.
+The following types of impacts have been considered:
+- Release to Air
+- Release to Ground
+- Release to Water
+- Use of Raw Materials
+- Use of Energy
+- Energy Emitted
+- Generation of Waste or By Products
+- Use of space.
+
+====
+
+QUESTIONS:
+Company history
+Provide a brief summary of your company.
+ANSWER:
+Headquartered in Scotland and Manchester UK, Evotix was founded in 1993 and has positioned itself as the UK’s leading EHS software provider. Evotix’s partnerships with EHS and risk management consultancies help inform its software development strategy, of which its mobile capabilities, ease of use and powerful BI are the key focuses.
+ 
+From day one, we’ve tried to make the most of emerging technology and do things a little bit differently. Back in the mid-90s it was the concept of online. These days it’s the market-leading latest in health and safety Business Intelligence (BI) tools.
+ 
+But our real power lies beyond the technical. It’s our commitment to solving customers’ health and safety challenges that sets us apart. We believe, as EHS technology experts, our core strength lies in utilising the latest technologies to help solve our customers’ health and safety challenges. We believe by embracing innovation and collaboration, we instill confidence and empower our customers to be a positive force for change. We extend our expertise to organisations seeking to stay ahead of the curve and make a positive difference to their people, and the world around them.
+ 
+We take a full-circle approach, collaborating with customers at each step of their health and safety journey – from the initial identification of business requirements, getting to know them and their business, implementing a tailored plan and working closely with them long term to help realise their health and safety ambitions.
+ 
+We are the fastest growing software company in this space, and for good reason; our renewals rate is 95%; our business has been growing at consistent rate above 25% year on year; and our EHS management solutions has been adopted by over 600 organisations globally - with over half a million users - in the last four years.
+ 
+In 2018, 2020 and 2022, Evotix was delighted to have made the prestigious ‘Verdantix Green Quadrant®’. This was in recognition of Evotix Assure being in the top 20 global EHS Software platform providers. Verdantix is acknowledged as being the global leader in independent research and consulting in the field of HS&E; Operational Risk; and Smart Building technologies. Evotix Assure was identified as one of the most prominent EHS software vendors in the market and elevated to the ‘Verdantix Green Quadrant®’ on the basis of rigorous evidence-based research, including studies of over 400 Heads of EHS functions.
+
+====
+
+QUESTIONS:
+What are the current levels of resources and their capabilities?
+Number of employees
+Team members
+ANSWER:
+Evotix has 270staff worldwide – around half of which are involved in implementation, delivery and support of our Assure solution services (i.e., Project Implementation, Tech Support, Customer Success Team, Engineering, etc.).
+ 
+Each staff member within the technical teams has extensive experience delivering our software solution for customers across a range of sectors and industries, including education but also, manufacturing, food and drink, transport and logistics, housing, education, construction, engineering, retail and leisure industries. We currently have 600 clients across these industries, with the technical team responsible for developing, implementing and configuring our Assure solution to meet their needs.
+
+====
+
+QUESTIONS:
+No social, gender or racial discrimination, of any form whatsoever, is practised or encouraged.
+Provide a copy of your supplier diversity policy statement and goals, if available, or describe how your company intends to support our commitment to expanding opportunities with diverse suppliers doing business.
+Does your organisation have corporate social responsibility commitments and programs e.g., ethical investments, indigenous inclusion, staff health and wellbeing, diversity, gender equality, engagement of social enterprises? If yes, please provide details below
+ANSWER:
+We have a full equality, diversity and equal opportunities policy, please refer to 'Attachment XX - Equal Employment Opportunity Policy'.
+
+====
+
+QUESTIONS:
+2.1 Do you have a Quality Policy? If so, please provide a copy.
+ANSWER:
+
+====
+
+QUESTIONS:
+Do you have arrangements for ensuring that any sub-contractors you engage apply appropriate Health & Safety protection measures that are appropriate to the work for which they are being engaged?
+ANSWER:
+Not Applicable. Evotix does not engage any sub-contractors for any work on our behalf which would require a Health and Safety Risk Assessment
+
+====
+
+QUESTIONS:
+Tenderers are to provide evidence of employee OHS training and competencies relevant to the type of works or services required by the Contract (use separate sheets as necessary).
+ANSWER:
+Not applicable - Evotix is providing a SaaS solution. 
+
+====
+
+QUESTIONS:
+Please provide details of your Environmental Management Systems (EMS) in place to reduce environmental risk and impacts, work towards environmental best practice, and ensure compliance with environmental legislation.  Including but not limited to:Environment and Sustainability PolicyProcedures and Management GuidesEnvironmental Risk Management SystemsContractor and Staff ManagementEnvironmental Pre-Start Checking Indicate whether you have or are working towards ISO 14001 certification and provide any associated documentation.
+ANSWER:
+As a SaaS provider, Evotix has a very low environmental impact. Evotix has an Environmental Management Policy in place and works to identify areas where it can reduce it's environmental impact, but has chosen not to implement an ISO 14001 compliant EMS.
+
+====
+
+QUESTIONS:
+Please describe how you will commit to fair work practices for workers (including any agency or sub-contractor workers) engaged in the delivery of this contract.
+Examples could include but need not be constrained to, or be reflective of any of examples below:
+•	Your company takes a positive approach to rewarding staff at a level that helps tackle inequality ( e.g. through a commitment to paying at least the Living Wage); 
+•	improves the wider diversity of your staff; provide skills and training, and opportunities to use skills which help staff fulfil their potential; avoids exploitative employment practices ( e.g. in relation to matters such as the inappropriate use of zero-hours contracts); 
+•	takes the engagement and empowerment of staff engaged on this contract seriously, including having arrangements in place to ensure trade union representation where possible; otherwise alternative arrangements to give staff an effective voice and that your company will demonstrate organisational integrity with regards to the delivery of those policies.
+Your response can include a variety of practices which demonstrate your approach to fair work and should be tangible and measurable examples that can be monitored and reported during contract management procedures.
+ANSWER:
+It is important to Evotix that we effect our customers and the local community positively as we conduct our work, both on a corporate and an individual level. 
+ 
+Supporting health and wellbeing
+Health, safety and wellbeing are of the utmost importance to Evotix, and we support our employees (including those involved as part of [Client Name]'s implementation team), in several ways.
+- Mental Health days are provided, in addition to bank holidays, to allow staff to disconnect from work and take time out for themselves
+- Evotix provides unlimited paid leave allowing employees to take the time they need as it suits their lifestyle
+- Evotix provides employee assistance programs which offer counselling.
+ 
+Environmental initiatives
+As a SaaS provider, Evotix as a organisation have a very low impact on the environment. We do not measure our carbon impact or have a target to reduce it. We do have an Environmental Policy which outlines our commitment to reducing our environmental impact and continually improving our environmental performance, along with a number of initiatives to reduce our impact:  
+ 
+- Cycle to Work Scheme: We have a cycle to work scheme in place, minimising the number of employees driving to work or using public transport.
+- Low CO2 Output: In order to limit the amount of commuting/travelling, we encourage the use of conference software such as Microsoft Teams and Zoom, both to conduct meetings internally and with customers.
+- Work from Home Scheme: We operate a work from home scheme, whereby many of our staff do not need to come into one of our offices to work if it isn’t necessary. Not only does this provide our staff with more flexibility and work/life balance, it is also reduces our company CO2 output as staff aren’t commuting to work using public transport or driving to work.
+- IT Systems: All of our IT systems are SaaS, this means no hosting of servers directly by Evotix with the servers our systems run on, also hosting other customers of our suppliers. This leads to lowered environmental impact from energy use
+ 
+Contributing to our community
+Evotix has a dedicated Charity Committee which organises several efforts each year to raise money for local/national charities such as MIND, National Emergency Trust, Red Cross and most recently The Outward Bound Trust. Our latest fundraiser included a group of colleagues cycling from Manchester to London.
+ 
+Developing our people
+We have a full equality, diversity and equal opportunities policy as well as issuing a Modern Slavery Statement, demonstrating our commitment to ensuring fair working practices for our employees and contractors. 
+ 
+We support the development of our people through a number of channels including:
+- Town Hall meetings held every two weeks allowing communication to staff, but also the ability to ask anonymous questions or send anonymous feedback
+- Managers and their staff have regular one to ones 
+- At least once per year, a best self review is held allowing staff to receive feedback from their manager, reports and peers on their positive traits and to provide constructive feedback on areas which may help them
+Evotix is also proud to have graduate and apprenticeship schemes in place. We have hired over 40 new graduates and apprentices in the past 4 years, many of whom have subsequently been promoted within the organisation. We support all employees with continuous professional development which includes training opportunities to ensure they are able to progress in their role and with the company.
+
+====
+
+QUESTIONS:
+Question 1-3 - Head Office and Any Other Office Locations Please provide the address of your Head Office and all other offices within your organisation (where applicable).
+ANSWER:
+Evotix's registered head office is in Glasgow UK [Prism House, 2 Rankine Avenue, East Kilbride].
+ 
+Other offices include:
+- Manchester UK [29 John Dalton Street, Manchester]
+- Chicago, USA (Global Head Office) [205 W. Wacker Drive, Chicago]
+- Perth [The Garden Office Park, Level 2 Building C, 355 Scarborough Beach Road, Osborne Park WA] and 
+- Melbourne [Level 9, 222 Exhibition Street, Melbourne. Victoria]. 
+
+====
+
+QUESTIONS:
+If answer to questions 1 and 2 is no, how does your organisation approach environment management?
+ANSWER:
+Evotix works to reduce our environmental footprint where possible. Remote and hybrid working, use of teams calls with customers, paperless systems, leasing space in shared offices, the use of SaaS system rather than self hosted operational systems, and hosting our products with global leaders minimises our impact. 
+
+====
+
+QUESTIONS:
+If not using any member of the Social Enterprise panel please specify any Social enterprise contractor used, or Social Enterprise programs initiated by your organisation?
+ANSWER:
+Evotix does not currently commit to, participate in, nor report on elements of Social Procurement Framework. We are not certified in any social procurement categories. Evotix does not utilise subcontractors or alliance-based partnerships in its go to market strategy to meet procurement or contracting standards nor any other government jurisdiction. That said, Evotix has multiple internal policies and practices that we adhere to with regarding to diversity, fair labor practices, sustainability, ethics and compliance, risk management, and other key corporate best practices frameworks that are expected of a global organization with a limited supply chain.
+
+====
+
+QUESTIONS:
+What is your legal company name?
+Legal Name
+Please can you provide the full name of the potential supplier submitting the information.
+ABN
+Address
+ANSWER:
+Evotix Pty Ltd
+ 
+ABN: 64 606 679 172
+ 
+Registered Address: 
+Level 9, 222 Exhibition street, Melbourne, VIC, 3000, Australia.
+
+====
+
+QUESTIONS:
+Details of number and location of sites and facilities.
+ANSWER:
+Evotix have offices across the globe which include:
+- Glasgow UK [Prism House, 2 Rankine Avenue, East Kilbride]
+- Manchester UK [29 John Dalton Street, Manchester]
+- Chicago, USA [205 W. Wacker Drive, Chicago]
+- Perth [The Garden Office Park, Level 2 Building C, 355 Scarborough Beach Road, Osborne Park WA] and 
+- Melbourne [Level 9, 222 Exhibition Street, Melbourne. Victoria]. 
+
+====
+
+QUESTIONS:
+Provide an overview of the products you offer.
+ANSWER:
+We harness the latest technologies to give people intuitive, human tools that address their most pressing EHS and well-being challenges. We continuously embrace new ideas and develop dynamic technology-driven solutions that are built for a rapidly changing world.
+ 
+Our solution, Assure, is an enterprise strength health and safety platform that has been built based on over 25 years’ experience within the health and safety solutions market. While we are not health and safety consultants, we do understand the issues that health and safety professionals face and Assure reflects this within its design and functionality.
+ 
+Assure is a modular solution which allows customers to pick and choose the functionality they need today and add-on additional functionality as and when requirements change. Evotix has been serving several customers for over 10 years and those customer journeys have given us a keen insight into how a well-implemented health and safety regimen can reinforce wider organisational development and build a robust, companywide health and safety culture.
+ 
+Because of its vast configurability, Assure supports the dynamism and adaptability that a truly global operation requires from its talent, its resources and its governance arrangements. This means that [Client Name] Administrators can configure or change the solution - as and when required - without the need to revert to a Supplier and incurring costly charges. Commonly, any system constantly changed through customisation (changes to base-line code) becomes unwieldy and, therefore, dramatically effects the user experience and overall management. This is what Evotix avoids.
+ 
+As an Evotix customer you will enjoy a true SaaS solution that is highly configurable, scalable, future proof and provides an intuitive user experience; all with a total cost of ownership many times lower than an equivalent self-hosted solution and with ingrained continuous improvement that keeps you current with best practice in a way beyond the scope of a bespoke solution. We release updates (fixes, new functionality etc.) to the platform every 2 weeks, again completely free of charge to our current customers.
+ 
+For the Health and Safety professional, partnering with Evotix means working with a provider you can be sure is constantly working to accommodate new developments, promote client success and share insights that will help you stay current with and be ready to champion change and improvement to all parts and at all levels of the business.
+ 
+In 2021 we acquired StoryShare, and its e-Learning and engagement training tool has become Evotix Learn. With the integration of these we are able to provide customers with micro learning content on the go, to support customers in their health and safety management and ensure front line workers are competent and skilled to undertake their duties.
+
+====
+
+QUESTIONS:
+Please confirm your organisation takes steps to guard against: modern slavery; human trafficking; forced and bonded labour; and labour rights violations in their supply chain
+Please advise the steps that your company has taken to ensure compliance with the Modern Slavery Act 2015 or human exploitation is not taking place within your business or supply chain?  Please provide any policy or Statement as applicable.
+
+If you are exempt from compliance to the Act due to Annual Revenue Levels, please indicate that you consider the issues covered by the act as part of your processes anyway.
+ANSWER:
+As a Business, Evotix is not of a significant size to be required to provide an annual statement on Modern Slavery by law. With its profile and the services provided, the potential for modern slavery to be in effect within Evotix itself or its suppliers is minimal.
+
+====
+
+QUESTIONS:
+Please state whether you will be supporting apprenticeships and skills development through this contract.
+The company participates in actions or projects destined to develop employment and competences in the region
+ANSWER:
+Evotix is proud to have graduate and apprenticeship schemes in place. We have hired over 40 new graduates and apprentices in the past 4 years, many of whom have subsequently been promoted within the organisation. We support all employees with continuous professional development which includes training opportunities to ensure they are able to progress in their role and with the company.
+
+====
+
+QUESTIONS:
+The refuse bags contain recycled material and/or are entirely compostable.
+ANSWER:
+We do not know as the landlord supplies them
+
+====
+
+QUESTIONS:
+There is a clear waste strategy is in place.
+ANSWER:
+Evotix's waste is very limited
+
+====
+
+QUESTIONS:
+Has the use of renewable energy has been integrated into the company's energy supplies
+ANSWER:
+Evotix is not responsible for purchasing the energy we use in the majority of cases
+
+====
+
+QUESTIONS:
+The water consumption, the according costs and reduction objectives are specified, compiled, controlled, and compared each month.
+ANSWER:
+Due to the limited impact we can have on this based on our operating environment, there is no plan 
+
+====
+
+QUESTIONS:
+Is there a programme to replace old equipment with energy efficient alternatives?
+ANSWER:
+There is not a specific programme to do this, but the majority of Equipment is IT end user equipment (Monitor, Mouse, keyboard, Dock, Laptop) this is replaced as required with the most appropriate model. Over time this equipment becomes more efficient 
+
+====
+
+QUESTIONS:
+The energy consumption (gas and electricity), the according costs and reduction objectives are specified, compiled, controlled, and compared each month.
+ANSWER:
+Only one office is leased by Evotix with Evotix paying for energy consumption directly, all other offices are in coworking spaces, this saves on energy usage
+
+====
+
+QUESTIONS:
+Are staff are encouraged to participate in activities relating to culture, sports, and leisure in the local community
+ANSWER:
+Evotix has a dedicated Charity Committee which organises several efforts each year to raise money for local/national charities such as MIND, National Emergency Trust, Red Cross and most recently The Outward Bound Trust. Our latest fundraiser included a group of colleagues cycling from Manchester to London.
+
+====
+
+QUESTIONS:
+Is the sustainability strategy and any relevant documents are published on the organisation's intranet
+ANSWER:
+Our Environmental Policy is published within our Policy Library, available to all staff.
+
+====
+
+QUESTIONS:
+Is there an ethical charter is in place with the definition of internal practices to limit corruption risks.
+ANSWER:
+This is covered in the code of conduct
+
+====
+
+QUESTIONS:
+Regular meetings favouring dialogue and exchanges between the Management and the staff are set up.
+ANSWER:
+Town Hall meetings are held every two weeks. this allows communication to staff, but also the ability to ask anonymous questions or send anonymous feedback
+Managers and their staff have regular one to ones 
+At least once per year, a best self review is held allowing staff to receive feedback from their manager, reports and peers on their positive traits and to provide constructive feedback on areas which may help them
+
+====
+
+QUESTIONS:
+Are there any options to facilitate staff commutes and accommodations
+ANSWER:
+Employees have the capability to work remotely as required
+
+====
+
+QUESTIONS:
+Is there a wellbeing at work programme, including mental health training
+ANSWER:
+Health, safety and wellbeing is of the utmost importance to Evotix, and we support our employees in several ways.
+- Mental Health days are provided to allow staff to disconnect from work and take time out for themselves
+- Evotix provides unlimited paid leave allowing employees to take the time they need as it suits their lifestyle
+- Evotix provides employee assistance programs which offer counselling
+ 
+
+====
+
+QUESTIONS:
+There are  rooms which are accessible to disabled persons.
+ANSWER:
+Our global offices provide accessible workspaces and we provide appropriate equipment to all homeworkers. 
+
+====
+
+QUESTIONS:
+Equipment is accessible to people with reduced mobility or disabled, for clients but also in staff areas.
+ANSWER:
+Our global offices provide accessible workspaces and we provide appropriate equipment to all homeworkers. We do not have clients visiting Evotix Offices
+
+====
+
+QUESTIONS:
+An ethical charter indicating the code of conduct is in place and distributed to all employees.
+ANSWER:
+A code of conduct and Anti Bribery policy is in place and is available on request.
+
+====
+
+QUESTIONS:
+The internal rules of the company take into account the issues of moral and sexual harassing.
+ANSWER:
+We have a full equality, diversity and equal opportunities policy which is available on request.
+
+====
+
+QUESTIONS:
+Is there frequent regulatory monitoring undertaken to follow the evolution of rules?
+ANSWER:
+Evotix monitor new laws and regulations, but the number of Environmental laws which directly apply to Evotix which require significant action from us is minimal.
+
+====
+
+QUESTIONS:
+Does your company have a dedicated working group on sustainability (e.g. Green Team, Environmental Committee) including a designated leader(s)?
+ANSWER:
+While sustainability is important, given Evotix's limited impact with limited ability to reduce our impact in the short term, this is not a focus.
+
+====
+
+QUESTIONS:
+Is the sustainability strategy totally integrated in the decision making process of your company and is overseen/ endorsed by senior management.
+ANSWER:
+Sustainability is a consideration when decisions are made, but Evotix's impact on the environment is already very low.
+
+====
+
+QUESTIONS:
+Does your companies sustainability strategy takes into account all of the following issues : 
+- governance ;
+- human rights ;
+- work conditions ;
+- the environment;                                                                                                                                                                                                                          - the clients;                                                                                                                                                                                                                                                                                                                                                                                                                                              - local communities
+ANSWER:
+Whilst we do not have a Sustainability Strategy, we do have an Environmental Policy which outlines our commitment to reducing our environmental impact and continually improving our environmental performance, we also issue a Modern Slavery Statement which gives an overview of our position on the matter. 
+
+====
+
+QUESTIONS:
+The establishment favours eco-responsible service providers (i.e.. taxis using alternative fuel, bicycle rental, landscaping services, etc..).
+ANSWER:
+We have several environmental initiatives; these include:
+ 
+CYCLE TO WORK SCHEME
+We have a cycle to work scheme in place, minimising the number of employees driving to work or using public transport.
+ 
+LOW CO2 OUTPUT 
+In order to limit the amount of commuting/travelling, we encourage the use of conference software such as Microsoft Teams and Zoom, both to conduct meetings internally and with customers.
+ 
+WORK FROM HOME SCHEME
+We operate a work from home scheme, whereby many of our staff do not need to come into one of our offices to work if it isn’t necessary.
+ 
+Not only does this provide our staff with more flexibility and work/life balance, it is also reduces our company CO2 output as staff aren’t commuting to work using public transport or driving to work.
+ 
+IT SYSTEMS
+All of our IT systems are SaaS, this means no hosting of servers directly by Evotix with the servers our systems run on, also hosting other customers of our suppliers. This leads to lowered environmental impact from energy use
+
+====
+
+QUESTIONS:
+Does your company have a sustainability strategy that clearly states sets out what the targets are and the actions that will be done in order to achieves these by a given date
+ANSWER:
+As a SaaS provider, Evotix as a organisation have a very low impact on the environment. We do not measure our carbon impact or have a target to reduce it. We do have an Environmental Policy which outlines our commitment to reducing our environmental impact and continually improving our environmental performance.
+
+====
+
+QUESTIONS:
+Please confirm that your organisation shall pay as a minimum the London Living Wage (LLW) for all staff employed on the contract.
+Are you a UK Living Wage (or London Living Wage, where applicable) employer?
+ANSWER:
+We confirm staff employed on the contract will be paid more than the LLW.
+
+====
+
+QUESTIONS:
+Number of customers
+ANSWER:
+Evotix currently have 600 active customers across our SaaS platforms. We service global customers from a wide range of industries including healthcare, education, local authorities, engineering, manufacturing, food & drink, housing, transport, pharmaceutical, oli * gas, public services, emergency services and many more. 
+ 
+The global split of our client base is as follows:
+- 41 customers across APAC
+- 392 customers across EMEA
+- 50 customers across North America
+We also partner with an organisation called Make UK, who sell our Assure and Learn platforms to a further 30 customers. 
+
+====
+
+QUESTIONS:
+Please explain how the approach to sustainability in your organisation is compatible with [Client Names] policies on sustainability
+ANSWER:
+It is important to Evotix that we effect our customers and the local community positively as we conduct our work, both on a corporate and an individual level. Please see our approach to sustainability evidencing our compatibility with [Client Name] policies: 
+ 
+CYCLE TO WORK SCHEME
+We have a cycle to work scheme in place, minimising the number of employees driving to work or using public transport.
+LOW CO2 OUTPUT 
+In order to limit the amount of commuting/travelling, we encourage the use of conference software such as Microsoft Teams and Zoom, both to conduct meetings internally and with customers.
+WORK FROM HOME SCHEME
+We operate a work from home scheme, whereby many of our staff do not need to come into one of our offices to work if it isn’t necessary.
+Not only does this provide our staff with more flexibility and work/life balance, it is also reduces our company CO2 output as staff aren’t commuting to work using public transport or driving to work.
+
+====
+
+QUESTIONS:
+Executive summary
+ANSWER:
+Evotix are delighted to share our response to the Safety, Health and Environment RFP for [Client Name]. We understand that [Client Name] are on a journey of growth and transformation, and with this you are ready to introduce a world-class integrated technology platform to help manage your expanding Environment, Health, Safety and Compliance requirements. In order to enhance Howden’s ability to manage and mitigate risk, it’s crucial that this platform allows you to drive standardised processes and procedures as well as enabling managers to have better visibility of risk areas.
+Our proposal aims to map the headline functionality of our Software-as-a-Service, EHS management, Assure, to your stated requirements and how we feel the system meets and exceeds them. After reviewing each of your project goals, we can confidently state that our system’s inherent configurability and deeply ingrained EHS best-practice design can help you achieve your EHS-related business outcomes for today and tomorrow. 
+Below is a short excerpt of what we will bring to [Client Name] through the implementation of Assure: 
+•	Deliver visibility through regional and local KPI dashboard reporting using the Assure Insights+ Business Intelligence module. 
+•	Real time reporting made available at the click of a button, with the ability to truly interrogate your data offering unrivalled levels of analytics and drill down capability. 
+•	Drive increased near miss, injuries, incident, and audit reporting by using engaging and easy to use solutions such as our dedicated mobile app Assure-GO+. 
+•	Dramatically save time and improve efficiencies. When an incident is reported for example, it all feeds into the one central [Client Name] system. 
+•	Enable strategic data-driven decisions to be made in a proactive manner, by providing both lagging and leading indicators in real time. [Client Name] will be able to gain full visibility of all activities, events, and sites, which will empower your safety team to act rather than react. 
+•	Standardise forms and processes across the entire business, providing a unified solution which all [Client Name] staff use. 
+•	Reduce admin from reporting to tracking, which will enable your teams to be more proactive rather than reactive and close gaps on activities they are not currently resourced to do. 
+•	The fundamentals of a EHS management program is engagement of all people. Assure will feature your forms for employees to report events or complete assessments. [Client Name] can easily publish safety documents or policies and make them easily accessible for all employees. Access is simple and unlimited.
+
+====
+
+QUESTIONS:
+Please confirm you have procedures for resolving disputed invoices with those in your supply chain promptly and effectively. This should include all situations where payments are due; not all payments involve an invoice .You should explain this in the tender documents
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Please confirm that you have systems in place to pay those in your supply chain promptly and effectively i.e. within your agreed contractual terms.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Please confirm if you intend to use a supply chain for this contract (i.e.  services that are used wholly or substantially for the purpose of performing or contributing to the performance of the whole or part of the contract).If 'No' you do not need to complete the rest of this section.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+If you use sub-contractors please self certify that you have processes in place to check whether any of the above circumstances apply to these other organisations?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Date of registration
+Date of formation.
+ANSWER:
+19th March 1996
+
+====
+
+QUESTIONS:
+Are you a public or privately held organisation?
+Are you a publicly traded company?
+Are you a privately held company?
+Please can you specify the trading status of your company
+ANSWER:
+Evotix Ltd is a privately held organisation.
+
+====
+
+QUESTIONS:
+VAT Number
+Registered VAT number.
+ANSWER:
+GB 205 8497 93
+
+====
+
+QUESTIONS:
+DUNS
+Head office DUNS number
+ANSWER:
+458169869
+
+====
+
+QUESTIONS:
+Company Registration Number 
+Registration number
+ANSWER:
+SC 164 270
+
+====
+
+QUESTIONS:
+Registered address?
+Do you have a physical address?
+What is your mailing address?
+Please specify the registered office address
+ANSWER:
+Prism House, 2 Rankine Avenue, East Kilbride, South Lanarkshire, G75 0QF, United Kingdom
+
+====
+
+QUESTIONS:
+What is your company name?
+Legal Name
+Please can you provide the full name of the potential supplier submitting the information.
+ANSWER:
+Evotix Ltd
+
+====
+
+QUESTIONS:
+Are you a public or privately held organisation?
+Are you a publicly traded company?
+Are you a privately held company?
+Please can you specify the trading status of your company
+ANSWER:
+Evotix Pty Ltd is a privately held organisation.
+
+====
+
+QUESTIONS:
+Company Registration Number 
+Registration number
+ANSWER:
+(AU) 606679172
+
+====
+
+QUESTIONS:
+Registered address?
+Do you have a physical address?
+What is your mailing address?
+Please specify the registered office address
+ANSWER:
+WeWork, 401 Collins Street, Floor 8, Office 101, Melbourne, VIC, 3000
+
+====
+
+QUESTIONS:
+Are you a public or privately held organisation?
+Are you a publicly traded company?
+Are you a privately held company?
+Please can you specify the trading status of your company
+ANSWER:
+Evotix Inc is a privately held organisation.
+
+====
+
+QUESTIONS:
+Registered address?
+Do you have a physical address?
+What is your mailing address?
+Please specify the registered office address
+ANSWER:
+205 W. Wacker Dr., Ste 1800, Chicago, IL, 60606
+
+====
+
+QUESTIONS:
+What is your company name?
+Legal Name
+Please can you provide the full name of the potential supplier submitting the information.
+ANSWER:
+Evotix Inc
+
+====
+
+QUESTIONS:
+Has your company achieved any awards or accreditations for this software solution request in this RFP?
+ANSWER:
+In 2018, 2020 and 2022, Evotix was delighted to have made the prestigious ‘Verdantix Green Quadrant®’. This was in recognition of Evotix Assure being in the top 20 global EHS Software platform providers. Verdantix is acknowledged as being the global leader in independent research and consulting in the field of HS&E; Operational Risk; and Smart Building technologies. Evotix Assure was identified as one of the most prominent EHS software vendors in the market and elevated to the ‘Verdantix Green Quadrant®’ on the basis of rigorous evidence-based research, including studies of over 400 Heads of EHS functions.
+
+====
+
+QUESTIONS:
+Contact name
+ANSWER:
+Ella Petrie
+Bid Manager
++44 7962164957
+ella.petrie@evotix.com
+
+====
+
+QUESTIONS:
+Does your company / vendor sponsor a corporate user group with regular meetings for this product?
+Is client feedback incorporated into your product roadmap?
+Are there any user groups or forums in which customer personnel could participate?
+ANSWER:
+We actively encourage knowledge exchange through our customer community. We deliver monthly Lunch & Learn webinars which keep customers up to date on best practices and latest developments. Once a year we sponsor an in-person customer event dedicated to knowledge sharing and receiving feedback. Customers are also regularly invited to participate in research and feedback session by our UI/UX team.
+
+====
+
+QUESTIONS:
+Are you or if applicable the group of economic operators proposing to use sub-contractors?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Are you bidding as part of a group or consortium
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Details of ultimate parent company
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Details of immediate parent company
+ANSWER:
+EVOTIX HOLDINGS LIMITED
+Regent House, 316 Beulah Hill, London, United Kingdom, SE19 3HF
+07784576
+Head office VAT number (if applicable)
+
+====
+
+QUESTIONS:
+Are you a Small Medium or Micro Enterprise (SME)?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+For procurements for services only is it a legal requirement in the country where you are established for you to: a) possess a particular authorisation orb) be a member of a particular organisation to provide the requirements specified in this procurement?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Are you registered with the appropriate professional or trade register(s) specified for this procurement in the country where your organisation is established?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Main phone number
+ANSWER:
++44 (0) 161 521 8490
+
+====
+
+QUESTIONS:
+Website address
+Registered website address
+ANSWER:
+https://www.evotix.com/
+
+====
+
+QUESTIONS:
+Trading name(s) that will be used if successful in this procurement.
+ANSWER:
+Evotix
+
+====
+
+QUESTIONS:
+Requirement under the Public Contracts Regulations 2015 (Regulation 113)Please confirm that for public sector contracts awarded under the Public Contract Regulations 2015 you have systems in place to include (as a minimum) 30 day payment terms in all of your supply chain contracts and require that such terms are passed down through your supply chain.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Bank details
+ANSWER:
+HSBC UK Bank Plc
+14-18 Finsbury Square
+London 
+EC2A 1BR
+United Kingdom
+ 
+Account Name: Evotix Ltd
+Bank Sort Code: 40-11-77
+Bank Account Number: 10016985
+IBAN Number: GB70HBUK40117710016985
+Branch Identifier Code: HBUKGB4B 
+Currency: GBP
+
+====
+
+QUESTIONS:
+Please state your annual turnover for the last financial year.
+ANSWER:
+Please see attached accounts for the last 3 years.
+
+====
+
+QUESTIONS:
+Have you ever been fined, sanctioned or investigated by a Regulatory authority?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Has your company been fined/convicted for an environmental infringement over the last three years (If yes, attachment is mandatory)?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Have there been any lawsuits or declarations of any legal action against your organization within the last three years that would impact your delivery of the solution outlined in this RFP?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Information regarding any and all lawsuits, liens, restraining orders, consent decrees, or legal actions in progress or which have been brought against your company in the past 3 years
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Please detail any claims made during the past 5 years (if applicable) detailing amounts and nature of claims.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Has your organization been convicted of breaching any environmental laws and regulations (incl. permits and registration) over the past 5 years?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Where you are relying on another member of your bidding group/consortium or any subcontractors or other security in order to meet the selection criteria relating to economic and financial standing please confirm that the relevant person or entity is willing to provide a guarantee or other security if required.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Where we have specified a minimum level of economic and financial standing and/ or a minimum financial threshold within the evaluation criteria for this procurement please self-certify by answering 'Yes' or 'No' that you meet the requirements set out.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+If documentary evidence of economic and financial standing is available electronically (e.g. financial statements filed with Companies House) please provide: a—	the web address—	issuing authority—	precise reference of the documents If not applicable please type N/A.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+You are a relevant commercial organisation subject to Section 54 of the Modern Slavery Act 2015 if you carry on your business or part of your business in the UK supplying goods or services and you have an annual turnover of at least£36 million.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+The organisation is guilty of serious misrepresentation in supplying the information required for the verification of the absence of grounds for exclusion or the fulfilment of the selection criteria.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Prior performance issues?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Been involved in the preparation of the procurement procedure?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Conflict of interest?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Distortion of competition?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Guilty of grave professional misconduct?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Bankrupt or is the subject of insolvency?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Breach of labour law obligations?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Breach of social law obligations?
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Breach of environmental obligations? To note that environmental law obligations include Health and Safety obligations. See https://www.gov.uk/government/publications/ppn-0323-standard-selection-questionnaire-sq
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Please also confirm whether you have paid or have entered into a binding arrangement with a view to paying the outstanding sum including where applicable any accrued interest and/or fines.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Any other offence within the meaning of Article 57(1) of the Directive created after 26th February 2015 in England Wales or Northern Ireland.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Any other offence within the meaning of Article 57(1) of the Directive as defined by the law of any jurisdiction outside England Wales or Northern Ireland.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Conviction for Child labour and other forms of trafficking in human beings.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Conviction for Money laundering or terrorist financing.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Conviction for Terrorist offences or offences linked to terrorist activities.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Conviction for Corruption.
+ANSWER:
+ 
+
+====
+
+QUESTIONS:
+Conviction for Participation in a criminal organisation.
+ANSWER:
+ 
+
+====

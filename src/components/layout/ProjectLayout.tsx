@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import SectionsList from "@/components/interfaces/Projects/Section/Sections";
+import SectionsList from "@/components/interfaces/Projects/SectionList/Sections";
 import ProjectQuestionList from "@/components/interfaces/Projects/Question/ProjectQuestionList";
 import { Section, User } from "@/types";
 

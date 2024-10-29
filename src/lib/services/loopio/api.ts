@@ -1,4 +1,5 @@
 import { getAccessToken } from "./index";
+import { LoopioClient } from "./client";
 
 interface LoopioSection {
   id: number;
@@ -33,8 +34,14 @@ interface EntriesResponse {
 export class LoopioAPI {
   private baseUrl = "https://api.loopio.com";
 
+  private client: LoopioClient;
+
+  constructor() {
+    this.client = new LoopioClient();
+  }
+
   private async fetchWithAuth(endpoint: string, options: RequestInit = {}) {
-    const token = await getAccessToken();
+    const token = await this.client.getToken();
     const response = await fetch(`${this.baseUrl}${endpoint}`, {
       ...options,
       headers: {
@@ -44,9 +51,9 @@ export class LoopioAPI {
       },
     });
 
-    // if (!response.ok) {
-    //   throw new Error(`Loopio API error: ${response.statusText}`);
-    // }
+    if (!response.ok) {
+      throw new Error(`Loopio API error: ${response.statusText}`);
+    }
 
     return response.json();
   }

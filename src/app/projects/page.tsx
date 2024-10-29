@@ -3,13 +3,13 @@
 import { columns } from "@/components/interfaces/Projects/ProjectsTable/ProjectsTable.constants";
 import { DataTable } from "@/components/interfaces/Projects/ProjectsTable/ProjectsTable";
 import { createClient } from "@/lib/services/supabase/server";
-
+import { revalidatePath } from "next/cache";
 import { Project } from "@/types";
 
 const supabase = createClient();
 
 async function getData(): Promise<Project[]> {
-  const { data, error } = await supabase.from("projects").select("*");
+  const { data, error } = await supabase.from("project").select("*");
   return data as Project[];
 }
 

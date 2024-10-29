@@ -2,38 +2,36 @@
 
 import { createClient } from "@/lib/services/supabase/server";
 import { inngest } from "@/lib/services/inngest/client";
+import { FormData } from "./new-project-dialog";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export async function createProject(formData: FormData) {
-  console.log("createProject action called"); // Add this log
+  console.log("createProject action called", formData);
   const supabase = createClient();
 
   try {
+    const { name, database, dataSource, loopioId, document } = formData;
 
-    const name = formData.get("name") as string;
-    const database = JSON.parse(formData.get("database") as string);
-    const dataSource = formData.get("dataSource") as string;
-    const loopioId = formData.get("loopioId") as string | null;
-    const document = formData.get("document") as File | null;
-
-    console.log("Inserting project into Supabase"); // Add this log
+    console.log("Inserting project into Supabase");
     const { data: project, error } = await supabase
-      .from("projects")
+      .from("project")
       .insert({
         name,
-        database: database.value,
-        data_source: dataSource,
-        document: document ? document.name : null,
-        loopio_id: loopioId,
-      })
-      .select()
-      .single();
+        knowledgeId: database.value,
+        dataSource: dataSource,
+        loopioId: loopioId,
+      });
 
-    if (error) throw error;
+    if (error) {
+      console.error("Error creating project:", error);
+      throw error;
+    }
 
-    console.log("Project created:", project); // Add this log
+    console.log("Project created:", project);
 
     if (dataSource === "loopio" && loopioId) {
-      console.log("Sending Inngest event"); // Add this log
+      console.log("Sending Inngest event");
       try {
         await inngest.send({
           name: "project/get-loopio-data",
@@ -47,8 +45,11 @@ export async function createProject(formData: FormData) {
       }
     }
 
+    revalidatePath("/projects");
+    redirect(`/projects/${project.id}`);
+
     return { project: JSON.parse(JSON.stringify(project)), error: null };
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error creating project:", error);
     return { project: null, error: error.message };
   }

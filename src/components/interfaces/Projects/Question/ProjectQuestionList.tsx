@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import QuestionCard from "./ProjectQuestionCard";
-import { Section } from "@/types";
+import { Section, User, UserWithTeams } from "@/types";
 import { Input } from "@/components/ui/input";
 import { Toggle } from "@/components/ui/toggle";
 import { List, Filter } from "lucide-react";
@@ -17,6 +17,7 @@ interface Question {
 
 interface ProjectQuestionListProps {
   items: Section[];
+  user: UserWithTeams;
 }
 
 const ProjectQuestionList: React.FC<ProjectQuestionListProps> = ({ items, user }) => {

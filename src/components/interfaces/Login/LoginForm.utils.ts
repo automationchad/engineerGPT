@@ -2,25 +2,22 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { toast } from "sonner";
 
 import { createClient } from "@/lib/services/supabase/server";
 
-export async function login(formData: { email: string; password: string; rememberMe: boolean }) {
+export async function login({ email, password }: { email: string; password: string }) {
   const supabase = createClient();
 
   const data = {
-    email: formData.email,
-    password: formData.password,
+    email,
+    password,
   };
 
   const { error } = await supabase.auth.signInWithPassword(data);
 
-  if (error) {
-    return { error };
-  } else {
-    revalidatePath("/", "layout");
-    redirect("/projects");
-  }
+  revalidatePath("/", "layout");
+  redirect("/projects");
 }
 
 // Update the signup function similarly

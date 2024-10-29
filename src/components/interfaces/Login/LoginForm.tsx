@@ -1,9 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { Label } from "@/components/ui/label";
-import { redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
+import { toast } from "sonner";
 
 import { useState } from "react";
 import { Icons } from "@/components/ui/icons";
@@ -20,10 +17,11 @@ import { login } from "./LoginForm.utils";
 import { Loader2 } from "lucide-react";
 import { headers } from "next/headers";
 import { createClient } from "@/lib/services/supabase/client";
-// Define the form schema
-const formSchema = z.object({
-  email: z.string().email({ message: "Invalid email address" }),
-  password: z.string().min(6, { message: "Password must be at least 6 characters" }),
+import { redirect } from "next/navigation";
+
+const signInSchema = z.object({
+  email: z.string().email("Must be a valid email").min(1, "Email is required"),
+  password: z.string().min(1, "Password is required"),
   rememberMe: z.boolean().default(false),
 });
 
@@ -50,9 +48,8 @@ export default function LoginForm() {
     }
   }
 
-  // Define your form
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof signInSchema>>({
+    resolver: zodResolver(signInSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -61,17 +58,17 @@ export default function LoginForm() {
   });
 
   // Define a submit handler
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsLoading(true);
-    setError(null);
+  async function onSignIn({ email, password, rememberMe }: { email: string; password: string; rememberMe: boolean }) {
+    const toastId = toast.loading("Signing in...");
     try {
-      await login(values);
-    } catch (err) {
-      setError(err.message);
-      setIsLoading(false);
-    } finally {
-      setError(null);
-      setIsLoading(false);
+      await login({ email, password });
+      toast.success("Signed in successfully", { id: toastId });
+    } catch (error: any) {
+      if (error.message.toLowerCase() === "email not confirmed") {
+        return toast.error("Account has not been verified, please check the link sent to your email", { id: toastId });
+      }
+
+      toast.error(error.message, { id: toastId });
     }
   }
 
@@ -101,7 +98,7 @@ export default function LoginForm() {
         </div>
       </div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(onSignIn)} className="space-y-6">
           <FormField
             control={form.control}
             name="email"

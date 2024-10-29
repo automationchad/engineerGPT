@@ -2,16 +2,13 @@
 
 import { createClient } from "@/lib/services/supabase/server";
 import { inngest } from "@/lib/services/inngest/client";
-import { Conversion, User } from "@/types";
+import { Conversion, Project, User } from "@/types";
+import { revalidatePath } from "next/cache";
 
 export async function handleConvert(project: Project, user: User, conversionId: string): Promise<Conversion> {
   const supabase = createClient();
 
-  // Get total number of questions for the project
-
-  // Filter the entries to only includes where
-
-   const teamIds = user.user_teams.map((userTeam) => userTeam.teams.loopio_id);
+  const teamIds = user.user_teams.map((userTeam) => userTeam.teams.loopio_id);
 
   const totalQuestions = project.sections.reduce((acc, section) => {
     const filteredEntries = section.entries.filter(
@@ -25,7 +22,7 @@ export async function handleConvert(project: Project, user: User, conversionId: 
     .from("conversions")
     .insert({
       project_id: project.id,
-      status: "queued",
+      status: "in_progress",
       total_questions: totalQuestions,
       processed_questions: 0,
     })
@@ -48,6 +45,8 @@ export async function handleConvert(project: Project, user: User, conversionId: 
         projectId: project.id,
       },
     });
+
+    revalidatePath("/projects/[project_id]", "layout");
   } catch (inngestError) {
     console.error("Error sending Inngest event:", inngestError);
     await supabase
