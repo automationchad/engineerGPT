@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Separator } from "@/components/ui/separator";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
 import { SlidersVertical, TriangleAlert } from "lucide-react";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
@@ -11,17 +12,20 @@ import * as z from "zod";
 
 const formSchema = z.object({
   model: z.string(),
+  industry: z.string(),
   temperature: z.number().min(0).max(100),
   relevance: z.number().min(0).max(100),
   styleExaggeration: z.number().min(0).max(100),
+  addExamples: z.boolean(),
 });
 
 export const defaultSettings = {
   model: "gpt-4o-mini",
+  industry: "mining",
   temperature: 80,
   relevance: 70,
   styleExaggeration: 20,
-  // speakerBoost: true,
+  addExamples: true,
 };
 
 interface MessageSettingsProps {
@@ -49,7 +53,7 @@ const MessageSettings: React.FC<MessageSettingsProps> = ({ onSettingsChange, onR
 
   return (
     <Form {...form}>
-      <form className="space-y-4 w-full h-full">
+      <form className="space-y-6 w-full h-full">
         <FormField
           control={form.control}
           name="model"
@@ -67,6 +71,29 @@ const MessageSettings: React.FC<MessageSettingsProps> = ({ onSettingsChange, onR
                   <SelectItem value="gpt-4o">GPT-4o</SelectItem>
                   <SelectItem value="gpt-4-turbo">GPT-4 Turbo</SelectItem>
                   <SelectItem value="claude-3-5-sonnet">Claude 3.5 Sonnet</SelectItem>
+                </SelectContent>
+              </Select>
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="industry"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Industry</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select industry" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="mining">Mining</SelectItem>
+                  <SelectItem value="construction">Construction</SelectItem>
+                  <SelectItem value="insurance">Insurance</SelectItem>
+                  <SelectItem value="banking">Banking</SelectItem>
+                  <SelectItem value="healthcare">Healthcare</SelectItem>
                 </SelectContent>
               </Select>
             </FormItem>
@@ -152,6 +179,19 @@ const MessageSettings: React.FC<MessageSettingsProps> = ({ onSettingsChange, onR
                   step={1}
                 />
               </FormControl>
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="addExamples"
+          render={({ field }) => (
+            <FormItem className="flex items-start justify-start">
+              <FormControl>
+                <Switch checked={field.value} onCheckedChange={field.onChange} />
+              </FormControl>
+              <FormLabel className="ml-3 p-0">Answer boost</FormLabel>
             </FormItem>
           )}
         />

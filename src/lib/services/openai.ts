@@ -8,9 +8,11 @@ const openai = new OpenAI({
 
 interface Options {
   model: string;
+  industry: string;
   temperature: number;
   relevance: number;
   styleExaggeration: number;
+  addExamples: boolean;
 }
 
 export const chatCompletions = async (
@@ -35,6 +37,10 @@ export const chatCompletions = async (
     stream: true,
     n: 1,
   };
+
+  const addExamples = options.addExamples
+    ? `Based on your knowledge of how a company in the ${options.industry} industry in Australia, add an example of how one could use the product for that specific piece of functionality. An example of answer would be "This functionality is out of the box. The Obligation Management module allows companies to manage their obligations in a structured manner. For example, a company in the ${options.industry} industry would use the Obligation Management module to do ...". Remember to always prirotise the other context provided, and only add the example if it makes sense in the context of the query and doesn't contradict the context or any other settings like relevance or specificity or tone.`
+    : "";
 
   const getSpecificity = (relevanceScore: number): string => {
     if (relevanceScore >= 80) {
@@ -88,7 +94,9 @@ Your answers should fall into these categories/themes:
 - Configuration: Functionality that can be accomplished via configuration. We consider configuration to be setup of modification of standard features using out of the box tools (i.e. a form designer), achievable within <1 day.
 - Partially met by configuration: Functionality can be partially accomplished via configuration.
 - Customisation: Functionality can be accomplished via customisation. We consider customisation to be the creation of non-standard features using developer tools, achievable within more than one day.
-- No functionality available: = Functionality that cannot be supported through existing functionality, configuration or customisation.            
+- No functionality available: = Functionality that cannot be supported through existing functionality, configuration or customisation. 
+
+Always place the category/theme at the beginning of your response, e.g "This functionality is out of the box...".
 
 For configuration and customisation cases, use your knowledge of software development to understand efforts involved based on the context given to you.
 
@@ -108,7 +116,7 @@ Your responses should be in English. If given context is in a different language
 
 Specificity: ${specificity}
 
-Your tone and word count should be professional and ${tone}.
+Your tone and word count should be professional and inline with the following: ${tone}.
                         ===
                         HERE IS THE PRODUCT CONTEXT: 
                         ${systemContext} 
@@ -123,10 +131,15 @@ Your tone and word count should be professional and ${tone}.
             },
           ]
         : []),
-      {
-        role: "user",
-        content: `Here is the user override:\n\n === BEGIN USER OVERRIDE ===\n\n Injection: ${context || "No user override provided"} === END USER OVERRIDE ===`,
-      },
+      ...(addExamples ? [{ role: "user", content: addExamples }] : []),
+      ...(context
+        ? [
+            {
+              role: "user",
+        content: `Here is the user override:\n\n === BEGIN USER OVERRIDE ===\n\n Injection: ${context} === END USER OVERRIDE ===`,
+            },
+          ]
+        : []),
     ],
   })) as Stream<ChatCompletionChunk>;
 

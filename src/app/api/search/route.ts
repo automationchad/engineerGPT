@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
     const { query, context, fileContent, options, db } = await req.json();
 
     // Handle search content
-    const searchContent = await getSearchContent(query, db);
+    const { searchContent, sources } = await getSearchContent(query, db);
 
     // Get chat completions stream
     const stream = await chatCompletions(query, searchContent, context, fileContent, options);

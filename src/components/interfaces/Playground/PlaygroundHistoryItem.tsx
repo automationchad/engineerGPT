@@ -80,7 +80,7 @@ const PlaygroundHistoryItem = ({ item, onClose }: { item: Message; onClose: () =
           </button>
         </div>
         <div
-          className={`absolute -top-4 -left-4 w-full min-h-content bg-black/90 text-muted-foreground border-border transition-opacity duration-300 border rounded-md backdrop-blur-sm p-4 text-sm pointer-events-none ${
+          className={`absolute -top-4 -left-4 w-full min-h-content bg-background/80 text-muted-foreground border-border transition-opacity duration-300 border rounded-md backdrop-blur-sm p-4 text-sm pointer-events-none ${
             showFullResponse ? "opacity-100" : "opacity-0"
           }`}>
           {item.response}

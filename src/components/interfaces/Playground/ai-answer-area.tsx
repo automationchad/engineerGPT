@@ -7,9 +7,14 @@ import { Button } from "@/components/ui/button";
 interface AIAnswerAreaProps {
   answer: string;
   isLoading: boolean;
+  sources: {
+    url: string;
+    relevance: number;
+    content: string;
+  }[];
 }
 
-const AIAnswerArea: React.FC<AIAnswerAreaProps> = ({ answer, isLoading }) => {
+const AIAnswerArea: React.FC<AIAnswerAreaProps> = ({ answer, isLoading, sources = [] }) => {
   const [copied, setCopied] = useState(false); // State to track if copied
 
   const handleCopy = () => {
@@ -44,6 +49,25 @@ const AIAnswerArea: React.FC<AIAnswerAreaProps> = ({ answer, isLoading }) => {
           <button onClick={handleCopy} className="ml-12 disabled:opacity-50" disabled={copied || isLoading || !answer}>
             {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />} {/* Copy button with icon change */}
           </button>
+        </div>
+      </div>
+      <div className="mt-4">
+        <h4 className="text-xs text-muted-foreground mb-2">References</h4>
+        <div className="flex flex-col space-y-2">
+          {sources.map((source, index) => (
+            <div className="border border-gray-300 p-4 rounded-md space-y-2" key={index}>
+              <div className="flex flex-row items-center justify-between">
+                <p className="text-xs text-muted-foreground">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                  officia deserunt mollit anim id est laborum.
+                </p>
+                <span className="text-xs text-muted-foreground">90%</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

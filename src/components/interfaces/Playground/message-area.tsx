@@ -114,7 +114,7 @@ export default function MessageArea({ onSubmit, isGenerating }: MessageAreaProps
     e.preventDefault();
     onSubmit({
       query: context,
-      context: context,
+      context: "",
       fileContent: fileContent,
       options: settings,
       db: selectedDB,

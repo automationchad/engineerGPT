@@ -13,6 +13,8 @@ export const defaultSettings = {
   temperature: 80,
   relevance: 70,
   styleExaggeration: 20,
+  addExamples: true,
+  industry: "mining",
   // speakerBoost: true,
 };
 

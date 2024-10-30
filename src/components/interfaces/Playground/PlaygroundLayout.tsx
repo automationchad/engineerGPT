@@ -98,7 +98,7 @@ export default function PlaygroundLayout({ history }: { history: Message[] }) {
         <ResizablePanelGroup direction="vertical">
           <ResizablePanel defaultSize={40} minSize={20}>
             <div className="flex h-full items-center justify-center p-6">
-              <AIAnswerArea answer={answer} isLoading={isLoading} />
+              <AIAnswerArea answer={answer} isLoading={isLoading} sources={[]} />
             </div>
           </ResizablePanel>
           <ResizableHandle withHandle />
