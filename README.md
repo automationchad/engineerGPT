@@ -1,6 +1,6 @@
 # engineerGPT
 
-RAG + LLMs for engineering docs. Feed it standards, specs, research papers, get technically accurate responses.
+RAG + LLMs for engineering docs. Feed it standards, specs, research papers, get technically accurate responses. Built because I got tired of digging through spec sheets. Use at your own risk.
 
 ## What it does
 - Chunks technical docs intelligently (handles formulas, units, tables)
@@ -63,6 +63,3 @@ PRs welcome. Read the code first.
 
 ## License 
 MIT
-
-Built because I got tired of digging through spec sheets. Use at your own risk.
-```
