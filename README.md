@@ -1,93 +1,68 @@
 # engineerGPT
 
-RAG-powered engineering assistant that provides technical recommendations based on engineering documentation, standards, and specifications.
+RAG + LLMs for engineering docs. Feed it standards, specs, research papers, get technically accurate responses.
 
-## Overview
+## What it does
+- Chunks technical docs intelligently (handles formulas, units, tables)
+- Stores in GroundX vectors
+- Streams context-aware responses 
+- Tags sources with spec numbers and page refs
 
-engineerGPT uses GroundX for vector storage and Next.js for the frontend. It processes engineering documents through RAG (Retrieval Augmented Generation) to provide context-aware technical assistance.
+## Stack
+- Next.js
+- GroundX vectorDB
+- OpenAI API
+- Streaming SSE
 
-## Features
-
-- Document Processing:
-  - Engineering PDF/manual parsing
-  - Technical specification embedding
-  - CAD metadata extraction
-  - Standards document indexing
-
-- Search & Retrieval:
-  - Material property lookups
-  - Design validation checks
-  - Technical standard references
-  - Manufacturing requirements
-
-- Real-time Generation:
-  - Streaming responses
-  - Source references
-  - Confidence scoring
-
-## Setup
-
-### Prerequisites
-- Node.js (v18+)
-- OpenAI API key
-- GroundX API key
-
-### Environment Variables
+## Run it
 ```bash
-OPENAI_API_KEY=your_key_here
-GROUNDX_API_KEY=your_key_here
-GROUNDX_BUCKET_ID=your_bucket_id
+export OPENAI_API_KEY=sk-xxx
+export GROUNDX_API_KEY=gx-xxx
+export GROUNDX_BUCKET_ID=xxx
 ```
 
-### Installation
+# Install & Run
 ```bash
-npm install
-# or
-yarn install
+npm i && npm run dev
 ```
 
-### Development
-```bash
-npm run dev
-# or
-yarn dev
+Visit `localhost:3000`
+
+## Core files
+```
+/app
+  /api
+    /search/route.ts     # main endpoint  
+  /chat
+    page.tsx            # chat UI
+/lib
+  processDocs.ts        # doc parsing
+  groundx.ts           # vector ops
 ```
 
-## Core Components
-
-### Frontend (`/app`)
-- `chat/page.tsx`: Main chat interface
-- `components/FileUpload.tsx`: Document upload handler
-- `components/SearchResults.tsx`: Results display
-
-### API (`/app/api`)
-- `search/route.ts`: Main search endpoint
-- `upload/route.ts`: Document upload endpoint
-- `embed/route.ts`: Embedding generation
-
-### Utils (`/utils`)
-- `processEngDocs.ts`: Engineering document processor
-- `vectorStore.ts`: GroundX interface
-- `validators.ts`: Input validation
-
-## API Usage
-
+## API
 ```bash
-curl -X POST http://localhost:3000/api/search \
+curl localhost:3000/api/search -X POST \
   -H "Content-Type: application/json" \
-  -d '{"query": "What are the material requirements for ASTM A36 steel?"}'
+  -d '{"query": "yield strength A36 steel"}'
 ```
 
-## GroundX Setup
+## Known issues
+- Formula parsing breaks on complex LaTeX
+- PDF tables get mangled sometimes
+- Large docs (>100MB) need chunking tweaks
 
-1. Create a bucket at [GroundX Content Page](https://groundx.ai/content)
-2. Upload engineering documents
-3. Set `GROUNDX_BUCKET_ID` in your env
+## Todo
+- [ ] Add material property embeddings
+- [ ] Fix unit conversion edge cases
+- [ ] Speed up vector search
+- [ ] Add CAD metadata parser
 
 ## Contributing
+PRs welcome. Read the code first.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines.
+## License 
+MIT
 
-## License
-
-MIT License - see [LICENSE](LICENSE)
+Built because I got tired of digging through spec sheets. Use at your own risk.
+```
