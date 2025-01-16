@@ -1,69 +1,93 @@
-# Search and Completion Next.js Project
+# engineerGPT
 
-This is a Next.js demo of GroundX being used to inject information into a language model via a process called "Retreival Augmented Generation". Main component is **Chat.tsx** and endpoint in **/api/search** folder. This demo essentially allows you to ask questions about documents which are uploaded to GroundX. Visit [eyelevel.ai](https://www.eyelevel.ai/) for more information.
+RAG-powered engineering assistant that provides technical recommendations based on engineering documentation, standards, and specifications.
 
-This is a local backend implementation which you can interface with via `curl`
+## Overview
 
-# Features
-When you send a query to this demo, the following happens:
+engineerGPT uses GroundX for vector storage and Next.js for the frontend. It processes engineering documents through RAG (Retrieval Augmented Generation) to provide context-aware technical assistance.
 
-- GroundX searches for the sections of documents which are relvent to your query
-- GroundX retreivals and the original query are sent to a language model, allowing the model to answer the query.
-- The model output is streamed to the client.
+## Features
 
-# Setup
+- Document Processing:
+  - Engineering PDF/manual parsing
+  - Technical specification embedding
+  - CAD metadata extraction
+  - Standards document indexing
 
-## Prerequisites
+- Search & Retrieval:
+  - Material property lookups
+  - Design validation checks
+  - Technical standard references
+  - Manufacturing requirements
 
-Before you begin, ensure you have met the following requirements:
+- Real-time Generation:
+  - Streaming responses
+  - Source references
+  - Confidence scoring
 
-- **Node.js**: Install Node.js from [Node.js official website](https://nodejs.org/).
-- **NPM**: Node.js comes with npm (Node Package Manager) pre-installed.
-- **Yarn** (optional): If you prefer using Yarn, you can install it by following the instructions on [Yarn official website](https://yarnpkg.com/).
+## Setup
 
-## Getting Started
+### Prerequisites
+- Node.js (v18+)
+- OpenAI API key
+- GroundX API key
 
-### Setting up API Keys
-
-This example assumes you have an API key set up for both OpenAI and GroundX. You can find your [OpenAI API keys here](https://platform.openai.com/account/api-keys) and your [GroundX API keys here](https://dashboard.groundx.ai/apikey)
-
-They can be configured as an environment variable as follows:
+### Environment Variables
 ```bash
-% export OPEN_AI_API_KEY=************
-% export GROUNDX_API_KEY=************
+OPENAI_API_KEY=your_key_here
+GROUNDX_API_KEY=your_key_here
+GROUNDX_BUCKET_ID=your_bucket_id
 ```
 
-### Setting up a GroundX Bucket
-GroundX is designed to allow language models to understand the content of complex human-centric documents. In order for this demo to work, you must have a GroundX "Content Bucket" with files uploaded.
-
-Navigate to the [GroundX content page](https://dashboard.groundx.ai/content), create a new bucket, and upload your content to that bucket. Your bucket will automatically have an `ID` assigned to it. Saving that as an environment variable will allow this demo to access the content of that bucket.
-
-```bash
-% export GROUNDX_BUCKET_ID=************
-```
-
-### Install dependency
-
+### Installation
 ```bash
 npm install
 # or
 yarn install
 ```
 
-### Run locally
-
+### Development
 ```bash
-npm run start
+npm run dev
 # or
-yarn run start
+yarn dev
 ```
 
-This will create a local server on [http://localhost:3000](http://localhost:3000) which is accessible via a post request to the `/search` endpoint.
+## Core Components
 
-# Core Components
+### Frontend (`/app`)
+- `chat/page.tsx`: Main chat interface
+- `components/FileUpload.tsx`: Document upload handler
+- `components/SearchResults.tsx`: Results display
 
-If you would like to re-create this demo yourself, these are the demos major components:
+### API (`/app/api`)
+- `search/route.ts`: Main search endpoint
+- `upload/route.ts`: Document upload endpoint
+- `embed/route.ts`: Embedding generation
 
-- **Chat.tsx** Path: **src/app/chat/page.tsx**
+### Utils (`/utils`)
+- `processEngDocs.ts`: Engineering document processor
+- `vectorStore.ts`: GroundX interface
+- `validators.ts`: Input validation
 
-- **Endpoint** Path: **src/app/api/search/route.ts**
+## API Usage
+
+```bash
+curl -X POST http://localhost:3000/api/search \
+  -H "Content-Type: application/json" \
+  -d '{"query": "What are the material requirements for ASTM A36 steel?"}'
+```
+
+## GroundX Setup
+
+1. Create a bucket at [GroundX Content Page](https://groundx.ai/content)
+2. Upload engineering documents
+3. Set `GROUNDX_BUCKET_ID` in your env
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines.
+
+## License
+
+MIT License - see [LICENSE](LICENSE)
